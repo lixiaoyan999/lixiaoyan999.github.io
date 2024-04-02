@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+  <head>
+     
+    <meta charset="UTF-8">
+    <title>生成安卓签名 - 一叶知秋</title>
+    <link rel="shortcut icon" href="/static/img/icon.png">
+    <link rel="icon" href="/static/img/icon.png" sizes="192x192"/>
+    
+<link rel="stylesheet" href="/static/kico.css">
+<link rel="stylesheet" href="/static/hingle.css">
+
+    
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <meta name="viewport" content="width=device-width, maximum-scale=1, initial-scale=1"/>
+    <meta property="og:site_name" content="一叶知秋">
+    <meta property="og:title" content="生成安卓签名"/>
+    <meta name="referrer" content="no-referrer" />
+    
+    <style>body:before{ content: ''; background-image: url(https://api.paugram.com/wallpaper?source=gh) }</style>
+    
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+  <body>
+    <header>
+    <div class="head-title">
+        <h4>一叶知秋</h4>
+    </div>
+    <div class="head-action">
+        <div class="toggle-btn"></div>
+        <div class="light-btn"></div>
+        <div class="search-btn"></div>
+    </div>
+    <form class="head-search" method="post">
+        <input type="text" name="s" placeholder="搜索什么？">
+    </form>
+    <nav class="head-menu">
+        <a href="/">首页</a>
+        <div class="has-child">
+            <a>分类</a>
+            <div class="sub-menu">
+                <a href="#1">vue</a>
+                <a href="#2">uniapp</a>
+                <a href="#3">微信小程序</a>
+                <a href="#3">实用工具</a>
+            </div>
+        </div>
+        
+    </nav>
+</header>
+
+    <main>
+    <div class="wrap min">
+        <section class="post-title">
+            <h2>生成安卓签名</h2>
+            <div class="post-meta">
+                <time class="date">2024.04.02</time>
+            
+            </div>
+        </section>
+        <article class="post-content">
+        
+            <pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token number">1.</span>打开cmd
+<span class="token number">2.</span><span class="token literal-property property">路径切换至android</span><span class="token operator">:</span> cd <span class="token punctuation">.</span>android
+<span class="token number">3.</span>安装签名：<span class="token string">"C:\Program Files\Java\jdk-17\bin\keytool.exe"</span> <span class="token operator">-</span>genkey <span class="token operator">-</span>alias testalias <span class="token operator">-</span>keyalg <span class="token constant">RSA</span> <span class="token operator">-</span>keysize <span class="token number">2048</span> <span class="token operator">-</span>validity <span class="token number">36500</span> <span class="token operator">-</span>keystore <span class="token string">"E:\Android_certificate\lan.keystore"</span>
+	（# 注：【<span class="token constant">C</span>盘】路径为java环境位置，【<span class="token constant">E</span>盘】为签名自定义存放位置<span class="token punctuation">,</span>【validity <span class="token number">36500</span>】为证书有效期<span class="token number">10</span>年）
+<span class="token number">4.</span><span class="token function">制作签名填写资料：</span>
+	<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>密钥口令<span class="token operator">:</span><span class="token function">android</span>
+	<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token function">姓氏</span>
+	<span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token function">组织单位名称</span>
+	<span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">)</span><span class="token function">组织名称</span>
+	<span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token function">所在城市区域</span>
+	<span class="token punctuation">(</span><span class="token number">6</span><span class="token punctuation">)</span>所在的省<span class="token operator">/</span>市<span class="token operator">/</span><span class="token function">区</span>
+	<span class="token punctuation">(</span><span class="token number">7</span><span class="token punctuation">)</span>地区代码
+<span class="token number">5.</span>确认信息：输入 y 
+<span class="token number">6.</span>制作签名成功
+<span class="token number">7.</span><span class="token function">查询证书：</span>
+	<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>不包含md5信息：<span class="token string">"C:\Program Files\Java\jdk-19\bin\keytool.exe"</span> <span class="token operator">-</span>list <span class="token operator">-</span>v <span class="token operator">-</span>keystore <span class="token string">"E:\Android_certificate\lan.keystore"</span>
+	<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span>包含md5信息：<span class="token string">"C:\Program Files\Java\jdk-19\bin\keytool.exe"</span> <span class="token operator">-</span>list <span class="token operator">-</span>v <span class="token operator">-</span>keystore <span class="token string">"E:\Android_certificate\lan.keystore"</span> <span class="token operator">|</span> <span class="token string">"C:\Program Files\OpenSSL-Win64\bin\openssl.exe"</span> dgst <span class="token operator">-</span>md5
+
+
+
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript">证书信息：
+<span class="token number">1.</span>证书包名：com<span class="token punctuation">.</span>lan<span class="token punctuation">.</span>mm
+<span class="token number">2.</span>证书别名：testalias
+<span class="token number">3.</span>证书私钥密码：android
+<span class="token number">4.</span><span class="token literal-property property">证书存放位置</span><span class="token operator">:</span><span class="token string">"E:\Android_certificate\lan.keystore"</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+        </article>
+        <section class="post-near">
+            <ul>
+                
+                    <li>上一篇: <a href="/2024/04/02/TYPORA%E4%B8%AD%E6%96%87%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/">TYPORA中文快速上手使用教程</a></li>
+                
+                
+                    <li>下一篇: <a href="/2018/10/30/vue%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%A2%98/">vue前端面试题</a></li>
+                
+            </ul>
+        </section>
+        
+    
+        <section class="post-author">
+        
+            <figure class="author-avatar">
+                <img src="https://gitee.com/lxywzh/blogs-img/raw/master/tx-3.jpg" alt="XXXXY" />
+            </figure>
+        
+            <div class="author-info">
+                <h4>XXXXY</h4>
+                <p>走在前端路程上的小坎坷</p>
+            </div>
+        </section>
+    
+    </div>
+</main>
+
+    <footer>
+    <div class="buttons">
+        <a class="to-top" href="#"></a>
+    </div>
+    <div class="wrap min">
+        <section class="widget">
+            <div class="row">
+                <div class="col-m-4">
+                    <h3 class="title-recent">最新文章：</h3>
+                    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2024/04/02/%E4%B8%8A%E6%9E%B6-IOS-%E5%BA%94%E7%94%A8%E5%88%B0-APP-Store%E6%B5%81%E7%A8%8B/">上架 IOS 应用到 APP Store流程</a></li><li class="post-list-item"><a class="post-list-link" href="/2024/04/02/TYPORA%E4%B8%AD%E6%96%87%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/">TYPORA中文快速上手使用教程</a></li><li class="post-list-item"><a class="post-list-link" href="/2024/04/02/%E7%94%9F%E6%88%90%E5%AE%89%E5%8D%93%E7%AD%BE%E5%90%8D/">生成安卓签名</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/30/vue%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%A2%98/">vue前端面试题</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/30/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/">微信小程序入门笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/25/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/">前端面试问题总结</a></li></ul>
+                </div>
+                <div class="col-m-4">
+                    <h3 class="title-date">时光机：</h3>
+                    <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/04/">四月 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">十月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">三月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">八月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">四月 2016</a></li></ul>
+                </div>
+                <div class="col-m-4">
+                    <h3 class="title-tags">标签云：</h3>
+                    <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/PS/" style="font-size: 10px;">PS</a> <a href="/tags/html/" style="font-size: 10px;">html</a> <a href="/tags/typora/" style="font-size: 10px;">typora</a> <a href="/tags/vue/" style="font-size: 10px;">vue</a> <a href="/tags/webpack/" style="font-size: 10px;">webpack</a> <a href="/tags/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/" style="font-size: 10px;">微信小程序</a> <a href="/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/" style="font-size: 10px;">面试题</a>
+                </div>
+            </div>
+        </section>
+        <section class="sub-footer">
+            <p>© 2024 <a href="/">一叶知秋</a>. All Rights Reserved. Theme By <a href="https://github.com/Dreamer-Paul/Hingle" target="_blank" rel="nofollow">Hingle</a>.</p>
+        </section>
+    </div>
+</footer>
+
+
+<script src="/static/kico.js"></script>
+<script src="/static/hingle.js"></script>
+
+
+<script>var hingle = new Paul_Hingle({"copyright":true,"night":true});</script>
+
+  </body>
+</html>

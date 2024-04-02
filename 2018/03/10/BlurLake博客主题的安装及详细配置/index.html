@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html>
+  <head>
+     
+    <meta charset="UTF-8">
+    <title>BlueLake博客主题的安装及详细配置 - 一叶知秋</title>
+    <link rel="shortcut icon" href="/static/img/icon.png">
+    <link rel="icon" href="/static/img/icon.png" sizes="192x192"/>
+    
+<link rel="stylesheet" href="/static/kico.css">
+<link rel="stylesheet" href="/static/hingle.css">
+
+    
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <meta name="viewport" content="width=device-width, maximum-scale=1, initial-scale=1"/>
+    <meta property="og:site_name" content="一叶知秋">
+    <meta property="og:title" content="BlueLake博客主题的安装及详细配置"/>
+    <meta name="referrer" content="no-referrer" />
+    
+    <style>body:before{ content: ''; background-image: url(https://api.paugram.com/wallpaper?source=gh) }</style>
+    
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+  <body>
+    <header>
+    <div class="head-title">
+        <h4>一叶知秋</h4>
+    </div>
+    <div class="head-action">
+        <div class="toggle-btn"></div>
+        <div class="light-btn"></div>
+        <div class="search-btn"></div>
+    </div>
+    <form class="head-search" method="post">
+        <input type="text" name="s" placeholder="搜索什么？">
+    </form>
+    <nav class="head-menu">
+        <a href="/">首页</a>
+        <div class="has-child">
+            <a>分类</a>
+            <div class="sub-menu">
+                <a href="#1">vue</a>
+                <a href="#2">uniapp</a>
+                <a href="#3">微信小程序</a>
+                <a href="#3">实用工具</a>
+            </div>
+        </div>
+        
+    </nav>
+</header>
+
+    <main>
+    <div class="wrap min">
+        <section class="post-title">
+            <h2>BlueLake博客主题的安装及详细配置</h2>
+            <div class="post-meta">
+                <time class="date">2018.03.10</time>
+            
+            </div>
+        </section>
+        <article class="post-content">
+        
+            <blockquote>这篇文章上次修改于 2216 天前，可能其部分内容已经发生变化，如有疑问可询问作者。</blockquote>
+        
+            <p>这篇博文主要也是为了解决这些问题。主题以简洁轻量自居(实则简陋)，去掉了Jquery和Fancybox,用原生JS实现站内搜索功能和回到顶部效果。这个主题只是一个小小的雏形，期待您来帮助它成长。</p>
+<p>在阅读本文之前，假定您已经成功安装了<a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/">Hexo</a>，并使用 Hexo 提供的命令创建了一个静态博客。Hexo是一个快速、简洁且高效的博客框架。Hexo基于Node.js ，使用 Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。</p>
+<blockquote>
+<p>需要特别注意的是Hexo有两个<code>_config.yml</code>配置文件，一份位于站点根目录下，主要包含 Hexo 站点本身的配置，下文中会称为<strong>根_config.yml</strong>；另一份位于主题目录下（themes/主题名/_config.yml），这份配置由主题作者提供，主要用于配置主题相关的选项,下文中会称为<strong>主题_config.yml</strong>。</p>
+</blockquote>
+<h3 id="1-安装">1. 安装</h3>
+<p>您可以直接到<a target="_blank" rel="noopener" href="https://github.com/chaooo/hexo-theme-BlueLake">BlueLake发布页</a>下载，然后解压拷贝到<code>themes</code>目录下，修改配置即可。</p>
+<p>您可以直接到<a target="_blank" rel="noopener" href="https://github.com/chaooo/hexo-theme-BlueLake">BlueLake发布页</a>下载，然后解压拷贝到<code>themes</code>目录下，修改配置即可。<br>
+不过我还是推荐使用<code>GIT</code>来checkout代码，之后也可以通过<code>git pull</code>来快速更新。</p>
+<h4 id="1-1-安装主题">1.1 安装主题</h4>
+<p>在根目录下打开终端窗口：</p>
+<pre class="line-numbers language-none"><code class="language-none">git bash
+$ git clone https:&#x2F;&#x2F;github.com&#x2F;chaooo&#x2F;hexo-theme-BlueLake.git themes&#x2F;BlueLake<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<h4 id="1-2-安装主题渲染器">1.2 安装主题渲染器</h4>
+<p>BlueLake是基于<code>jade</code>和<code>stylus</code>写的，所以需要安装<code>hexo-renderer-jade</code>和<code>hexo-renderer-stylus</code>来渲染。</p>
+<pre class="line-numbers language-none"><code class="language-none">git bash
+$ npm install hexo-renderer-jade@0.3.0 --save
+$ npm install hexo-renderer-stylus --save<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<h4 id="1-3-启用主题">1.3 启用主题</h4>
+<p>打开<code>根_config.yml</code>配置文件，找到theme字段，将其值改为<code>BlueLake</code>(先确认主题文件夹名称是否为BlueLake)。</p>
+<pre class="line-numbers language-none"><code class="language-none">根_config.yml_config.yml
+theme: BlueLake<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<h4 id="1-4-验证">1.4 验证</h4>
+<p>首先启动 Hexo 本地站点，并开启调试模式：</p>
+<pre class="line-numbers language-none"><code class="language-none">git bash
+$ hexo s --debug<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>在服务启动的过程，注意观察命令行输出是否有任何异常信息，如果你碰到问题，这些信息将帮助他人更好的定位错误。 当命令行输出中提示出：<code>INFO Hexo is running at http://0.0.0.0:4000/. Press Ctrl+C to stop.</code></p>
+<p>在服务启动的过程，注意观察命令行输出是否有任何异常信息，如果你碰到问题，这些信息将帮助他人更好的定位错误。 当命令行输出中提示出：<code>INFO Hexo is running at http://0.0.0.0:4000/. Press Ctrl+C to stop.</code><br>
+此时即可使用浏览器访问 <code>http://localhost:4000</code>，检查站点是否正确运行。</p>
+<h4 id="1-5-更新主题">1.5 更新主题</h4>
+<p>今后若主题添加了新功能正是您需要的，您可以直接<code>git pull</code>来更新主题。</p>
+<pre class="line-numbers language-none"><code class="language-none">git bash
+cd themes&#x2F;BlueLake
+git pull<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<h3 id="2-配置">2. 配置</h3>
+<h4 id="2-1-配置网站头部显示文字">2.1 配置网站头部显示文字</h4>
+<p>打开<code>根_config.yml</code>，找到：</p>
+<pre class="line-numbers language-none"><code class="language-none">根_config.yml_config.yml
+title: 
+subtitle: 
+description: 
+author:<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><code>title</code>和<code>subtitle</code>分别是网站主标题和副标题，会显示在网站头部；<code>description</code>在网站界面不会显示，内容会加入网站源码的<code>meta</code>标签中，主要用于SEO；<code>author</code>就填写网站所有者的名字，会在网站底部的<code>Copyright</code>处有所显示。</p>
+<h4 id="2-2-设置语言">2.2 设置语言</h4>
+<p>该主题目前有七种语言：简体中文（zh-CN），繁体中文（zh-TW），英语（en），法语（fr-FR），德语（de-DE），韩语 （ko）,西班牙语（es-ES）；例如选用简体中文，在<code>根_config.yml</code>配置如下：</p>
+<pre class="line-numbers language-none"><code class="language-none">根_config.yml_config.yml
+language: zh-CN<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<h4 id="2-3-设置菜单">2.3 设置菜单</h4>
+<p>打开<code>主题_config.yml</code>，找到：</p>
+<pre class="line-numbers language-none"><code class="language-none">主题_config.ymlthemes&#x2F;BlueLake&#x2F;_config.yml
+menu:
+  - page: home
+    directory: .
+    icon: fa-home
+  - page: archive
+    directory: archives&#x2F;
+    icon: fa-archive
+  # - page: about
+  #   directory: about&#x2F;
+  #   icon: fa-user
+  - page: rss
+    directory: atom.xml
+    icon: fa-rss<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>主题默认是展示四个菜单，即<code>主页home</code>，<code>归档archive</code>，<code>关于about</code>，<code>订阅RSS</code>；about需要手动添加，RSS需要安装插件，若您并不需要，可以直接注释掉。</p>
+<p>主题默认是展示四个菜单，即<code>主页home</code>，<code>归档archive</code>，<code>关于about</code>，<code>订阅RSS</code>；about需要手动添加，RSS需要安装插件，若您并不需要，可以直接注释掉。<br>
+每个页面底部的<code>footer</code>中<code>联系博主</code>的三个图标分别是<code>邮箱</code>，<code>微博主页链接地址</code>，<code>GitHUb个人页链接地址</code>，直接使用<code>主题_config.yml</code>中<code>about页面</code>的配置，若不需要about页面，只需要如下配置就好：</p>
+<pre class="line-numbers language-none"><code class="language-none">主题_config.ymlthemes&#x2F;BlueLake&#x2F;_config.yml
+# About page 
+about:
+  email: ## 个人邮箱 
+  weibo_url: ## 微博主页链接地址
+  github_url: ## github主页链接地址<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h5 id="2-3-1-添加about页">2.3.1 添加about页</h5>
+<p>此主题默认page页面是关于我页面的布局，在根目录下打开命令行窗口，生成一个关于我页面：</p>
+<pre class="line-numbers language-none"><code class="language-none">git bash
+$ hexo new page &#39;about&#39;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>打开<code>主题_config.yml</code>，补全关于我页面的详细信息：</p>
+<pre class="line-numbers language-none"><code class="language-none">主题_config.ymlthemes&#x2F;BlueLake&#x2F;_config.yml
+# About page 
+about:
+  photo_url: ## 头像的链接地址
+  email: ## 个人邮箱 
+  weibo_url: ## 微博主页链接地址
+  weibo_name: ## 微博用户名 
+  github_url: ## github主页链接地址
+  github_name: ## github用户名<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>当然您也可以自定义重新布局about页面，只需要修改<code>layout/page.jade</code>模板就好。</p>
+<h5 id="2-3-2-安装-RSS-订阅-和-sitemap-网站地图-插件">2.3.2 安装 RSS(订阅) 和 sitemap(网站地图) 插件</h5>
+<p>在根目录下打开命令行窗口：</p>
+<pre class="line-numbers language-none"><code class="language-none">git bash
+$ npm install hexo-generator-feed --save
+$ npm install hexo-generator-sitemap --save
+$ npm install hexo-generator-baidu-sitemap --save<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<p>添加<code>主题_config.yml</code>配置：</p>
+<pre class="line-numbers language-none"><code class="language-none">主题_config.ymlthemes&#x2F;BlueLake&#x2F;_config.yml
+Plugins:
+  hexo-generator-feed
+  hexo-generator-sitemap
+  hexo-generator-baidu-sitemap
+
+feed:
+  type: atom
+  path: atom.xml
+  limit: 20
+
+sitemap:
+  path: sitemap.xml
+baidusitemap:
+  path: baidusitemap.xml<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="2-4-添加本地搜索">2.4 添加本地搜索</h4>
+<p>默认本地搜索是用原生JS写的，但还需要HEXO插件创建的JSON数据文件配合。安装插件<a target="_blank" rel="noopener" href="https://github.com/alexbruno/hexo-generator-json-content">hexo-generator-json-content</a>来创建JSON数据文件：</p>
+<pre class="line-numbers language-none"><code class="language-none">git bash
+$ npm install hexo-generator-json-content@2.2.0 --save<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>然后在<code>根_config.yml</code>添加配置：</p>
+<pre class="line-numbers language-none"><code class="language-none">根_config.yml_config.yml
+jsonContent:
+  meta: false
+  pages: false
+  posts:
+    title: true
+    date: true
+    path: true
+    text: true
+    raw: false
+    content: false
+    slug: false
+    updated: false
+    comments: false
+    link: false
+    permalink: false
+    excerpt: false
+    categories: false
+    tags: true<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>最后在<code>主题_config.yml</code>添加配置：</p>
+<pre class="line-numbers language-none"><code class="language-none">主题_config.ymlthemes&#x2F;BlueLake&#x2F;_config.yml
+local_search: true<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<h4 id="2-5-修改站点图标">2.5 修改站点图标</h4>
+<p>站点图标存放在主题的<code>Source</code>目录下，已经默认为您准备了两张图片。您也可以自己设计站点LOGO。</p>
+<p>站点图标存放在主题的<code>Source</code>目录下，已经默认为您准备了两张图片。您也可以自己设计站点LOGO。<br>
+您需要准备一张ico格式并命名为** favicon.ico **，请将其放入hexo目录的<code>source</code>文件夹，建议大小：32px X 32px。</p>
+<p>站点图标存放在主题的<code>Source</code>目录下，已经默认为您准备了两张图片。您也可以自己设计站点LOGO。<br>
+您需要准备一张ico格式并命名为** favicon.ico <strong>，请将其放入hexo目录的<code>source</code>文件夹，建议大小：32px X 32px。<br>
+您需要为苹果设备添加网站徽标，请命名为</strong> apple-touch-icon.png **的图像放入hexo目录的“source”文件夹中，建议大小为：114px X 114px。</p>
+<p>站点图标存放在主题的<code>Source</code>目录下，已经默认为您准备了两张图片。您也可以自己设计站点LOGO。<br>
+您需要准备一张ico格式并命名为** favicon.ico <strong>，请将其放入hexo目录的<code>source</code>文件夹，建议大小：32px X 32px。<br>
+您需要为苹果设备添加网站徽标，请命名为</strong> apple-touch-icon.png **的图像放入hexo目录的“source”文件夹中，建议大小为：114px X 114px。<br>
+(有很多网站都可以在线生成ico格式的图片。)</p>
+<h4 id="2-6-添加站点关键字">2.6 添加站点关键字</h4>
+<p>请在hexo目录的<code>根_config.yml</code>中添加keywords字段，如：</p>
+<pre class="line-numbers language-none"><code class="language-none">根_config.yml_config.yml
+# Site
+title: Hexo
+subtitle: 副标题
+description: 网站简要描述,如：Charles·Zheng&#39;s blog.
+keywords: 网站关键字, key, key1, key2, key3
+author: Charles
+language: zh-CN<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="2-7-其他配置">2.7 其他配置</h4>
+<p><code>主题_config.yml</code>的其他配置</p>
+<ol>
+<li><code>show_category_count</code>——是否显示分类下的文章数。</li>
+<li><code>widgets_on_small_screens</code>——是否在小屏显示侧边栏，若<code>true</code>,则侧边栏挂件将显示在底部。主题_config.yml<a target="_blank" rel="noopener" href="https://github.com/chaooo/hexo-theme-BlueLake/blob/master/_config.yml">themes/BlueLake/_config.yml</a><code>show_category_count: true widgets_on_small_screens: true</code></li>
+</ol>
+<h3 id="3-集成第三方服务">3.集成第三方服务</h3>
+<h4 id="3-1-添加评论">3.1 添加评论</h4>
+<p>目前主题集成六种第三方评论，分别是<a target="_blank" rel="noopener" href="http://duoshuo.com/">多说评论</a>、<a target="_blank" rel="noopener" href="https://disqus.com/">Disqus评论</a>、<a target="_blank" rel="noopener" href="https://livere.com/">来必力评论</a>、<a target="_blank" rel="noopener" href="http://www.uyan.cc/">友言评论</a>、<a target="_blank" rel="noopener" href="https://gentie.163.com/info.html">网易云跟帖评论</a>、<a target="_blank" rel="noopener" href="http://changyan.kuaizhan.com/">畅言评论</a>，多说马上就要停止服务了，友言好像也没怎么维护,目前我已把自己的博客评论从多说转移到畅言了，在国内目前<code>网易云跟帖</code>和<code>畅言</code>还不错。</p>
+<ol>
+<li>注册并获得代码。
+<ul>
+<li>若使用<a target="_blank" rel="noopener" href="http://duoshuo.com/">多说评论</a>，注册多说后获得short_name。</li>
+<li>若使用<a target="_blank" rel="noopener" href="https://disqus.com/">Disqus评论</a>，注册Disqus后获得short_name。</li>
+<li>若使用<a target="_blank" rel="noopener" href="https://livere.com/">来必力评论</a>，注册来必力,获得data-uid。</li>
+<li>若使用<a target="_blank" rel="noopener" href="http://www.uyan.cc/">友言评论</a>，注册友言,获得uid。</li>
+<li>若使用<a target="_blank" rel="noopener" href="https://gentie.163.com/info.html">网易云跟帖评论</a>，注册网易云跟帖,获得productKey。</li>
+<li>若使用<a target="_blank" rel="noopener" href="http://changyan.kuaizhan.com/">畅言评论</a>，注册畅言，获得appid，appkey。</li>
+</ul>
+</li>
+<li>配置<code>主题_config.yml</code>：主题_config.yml<a target="_blank" rel="noopener" href="https://github.com/chaooo/hexo-theme-BlueLake/blob/master/_config.yml">themes/BlueLake/_config.yml</a><code>#Cmmentscomment:  duoshuo: ## duoshuo_shortname  disqus: ## disqus_shortname  livere: ## 来必力(data-uid)  uyan: ## 友言(uid)  cloudTie: ## 网易云跟帖(productKey)  changyan: ## 畅言需在下方配置两个参数，此处不填。    appid: ## 畅言(appid)    appkey: ##畅言(appkey)</code></li>
+</ol>
+<h4 id="3-2-百度统计">3.2 百度统计</h4>
+<ol>
+<li>登录<a target="_blank" rel="noopener" href="http://tongji.baidu.com/">百度统计</a>，定位到站点的代码获取页面。</li>
+<li>复制<code>//hm.baidu.com/hm.js?</code>后面那串统计脚本id(假设为：8006843039519956000)</li>
+<li>配置<code>主题_config.yml</code>:主题_config.yml<a target="_blank" rel="noopener" href="https://github.com/chaooo/hexo-theme-BlueLake/blob/master/_config.yml">themes/BlueLake/_config.yml</a><code>baidu_analytics: 8006843039519956000</code></li>
+</ol>
+<blockquote>
+<p>注意： <code>baidu_analytics</code>不是你的百度<code>id</code>或者百度统计<code>id</code></p>
+<p>注意： <code>baidu_analytics</code>不是你的百度<code>id</code>或者百度统计<code>id</code><br>
+如若使用谷歌统计，配置方法与百度统计类似。</p>
+</blockquote>
+<h4 id="3-3-卜算子阅读次数统计">3.3 卜算子阅读次数统计</h4>
+<pre class="line-numbers language-none"><code class="language-none">主题_config.ymlthemes&#x2F;BlueLake&#x2F;_config.yml
+busuanzi: true<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>若设置为<code>true</code>将计算文章的阅读量(Hits)，并显示在文章标题下的<code>小手图标</code>旁。</p>
+<h4 id="3-4-微博秀">3.4 微博秀</h4>
+<p>微博秀挂件的代码放在<code>layout/_widget/weibo.jade</code>下，需要您去<a target="_blank" rel="noopener" href="http://open.weibo.com/">微博开放平台</a>获取您自己的微博秀代码来替换。</p>
+<ol>
+<li>登录<a target="_blank" rel="noopener" href="http://open.weibo.com/">微博开放平台</a>，选择微博秀。</li>
+<li>为了与主题风格统一，作如下配置
+<ul>
+<li>基础设置：高<code>400px</code>；勾选宽度自适应；颜色选择<code>白色</code>；</li>
+<li>样式设置：主字色<code>#333</code>；链接色<code>#40759b</code>；鼠标悬停色<code>#f7f8f8</code>；</li>
+<li>模块设置：去掉<code>标题</code>、<code>边框</code>、<code>粉丝</code>的勾选框，只留<code>微博</code>。</li>
+</ul>
+</li>
+<li>复制代码里<code>src=&quot;&quot;</code>里引号包裹的内容，替换到<code>layout/_widget/weibo.jade</code>weibo.jade<a target="_blank" rel="noopener" href="https://github.com/chaooo/hexo-theme-BlueLake/blob/master/layout/_widget/weibo.jade">layout/_widget/weibo.jade</a><code>.widget  .widget-title    i(class='fa fa-weibo')= ' ' + __('新浪微博')  iframe(width=&quot;100%&quot;,height=&quot;400&quot;,class=&quot;share_self&quot;,frameborder=&quot;0&quot;,scrolling=&quot;no&quot;,src=&quot;http://widget.weibo.com/weiboshow/index.php?language=&amp;width=0&amp;height=400&amp;fansRow=2&amp;ptype=1&amp;speed=0&amp;skin=5&amp;isTitle=0&amp;noborder=0&amp;isWeibo=1&amp;isFans=0&amp;uid=1700139362&amp;verifier=85be6061&amp;colors=d6f3f7,ffffff,333,40759b,f7f8f8&amp;dpc=1&quot;)</code>这只是为了和主题的风格统一，当然您也可以自由随意发挥。注意：最主要是是要把<code>src</code>里<code>uid=</code>和<code>verifier=</code>后面的字段替换为您自己代码里的就好。</li>
+</ol>
+
+        </article>
+        <section class="post-near">
+            <ul>
+                
+                    <li>上一篇: <a href="/2018/03/20/webpack%E7%AC%94%E8%AE%B0/">webpack笔记</a></li>
+                
+                
+                    <li>下一篇: <a href="/2017/08/22/HTML%E7%AC%94%E8%AE%B0/">HTML笔记</a></li>
+                
+            </ul>
+        </section>
+        
+            <section class="post-tags">
+            <a class="-none-link" href="/tags/Hexo/" rel="tag">Hexo</a>
+            </section>
+        
+    
+        <section class="post-author">
+        
+            <figure class="author-avatar">
+                <img src="https://gitee.com/lxywzh/blogs-img/raw/master/tx-3.jpg" alt="XXXXY" />
+            </figure>
+        
+            <div class="author-info">
+                <h4>XXXXY</h4>
+                <p>走在前端路程上的小坎坷</p>
+            </div>
+        </section>
+    
+    </div>
+</main>
+
+    <footer>
+    <div class="buttons">
+        <a class="to-top" href="#"></a>
+    </div>
+    <div class="wrap min">
+        <section class="widget">
+            <div class="row">
+                <div class="col-m-4">
+                    <h3 class="title-recent">最新文章：</h3>
+                    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2024/04/02/%E4%B8%8A%E6%9E%B6-IOS-%E5%BA%94%E7%94%A8%E5%88%B0-APP-Store%E6%B5%81%E7%A8%8B/">上架 IOS 应用到 APP Store流程</a></li><li class="post-list-item"><a class="post-list-link" href="/2024/04/02/TYPORA%E4%B8%AD%E6%96%87%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/">TYPORA中文快速上手使用教程</a></li><li class="post-list-item"><a class="post-list-link" href="/2024/04/02/%E7%94%9F%E6%88%90%E5%AE%89%E5%8D%93%E7%AD%BE%E5%90%8D/">生成安卓签名</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/30/vue%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%A2%98/">vue前端面试题</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/30/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/">微信小程序入门笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/25/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/">前端面试问题总结</a></li></ul>
+                </div>
+                <div class="col-m-4">
+                    <h3 class="title-date">时光机：</h3>
+                    <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/04/">四月 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">十月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">三月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">八月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">四月 2016</a></li></ul>
+                </div>
+                <div class="col-m-4">
+                    <h3 class="title-tags">标签云：</h3>
+                    <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/PS/" style="font-size: 10px;">PS</a> <a href="/tags/html/" style="font-size: 10px;">html</a> <a href="/tags/typora/" style="font-size: 10px;">typora</a> <a href="/tags/vue/" style="font-size: 10px;">vue</a> <a href="/tags/webpack/" style="font-size: 10px;">webpack</a> <a href="/tags/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/" style="font-size: 10px;">微信小程序</a> <a href="/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/" style="font-size: 10px;">面试题</a>
+                </div>
+            </div>
+        </section>
+        <section class="sub-footer">
+            <p>© 2024 <a href="/">一叶知秋</a>. All Rights Reserved. Theme By <a href="https://github.com/Dreamer-Paul/Hingle" target="_blank" rel="nofollow">Hingle</a>.</p>
+        </section>
+    </div>
+</footer>
+
+
+<script src="/static/kico.js"></script>
+<script src="/static/hingle.js"></script>
+
+
+<script>var hingle = new Paul_Hingle({"copyright":true,"night":true});</script>
+
+  </body>
+</html>

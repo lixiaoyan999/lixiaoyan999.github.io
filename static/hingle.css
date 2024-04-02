@@ -43,7 +43,7 @@ body:before{
     z-index: -1;
     display: block;
     position: fixed;
-    background: url(https://api.paugram.com/wallpaper/) center/cover;
+    /* background: url(https://api.paugram.com/wallpaper/) center/cover; */
 }
 
 ::-webkit-scrollbar{

@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html>
+  <head>
+     
+    <meta charset="UTF-8">
+    <title>上架 IOS 应用到 APP Store流程 - 一叶知秋</title>
+    <link rel="shortcut icon" href="/static/img/icon.png">
+    <link rel="icon" href="/static/img/icon.png" sizes="192x192"/>
+    
+<link rel="stylesheet" href="/static/kico.css">
+<link rel="stylesheet" href="/static/hingle.css">
+
+    
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <meta name="viewport" content="width=device-width, maximum-scale=1, initial-scale=1"/>
+    <meta property="og:site_name" content="一叶知秋">
+    <meta property="og:title" content="上架 IOS 应用到 APP Store流程"/>
+    <meta name="referrer" content="no-referrer" />
+    
+    <style>body:before{ content: ''; background-image: url(https://api.paugram.com/wallpaper?source=gh) }</style>
+    
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+  <body>
+    <header>
+    <div class="head-title">
+        <h4>一叶知秋</h4>
+    </div>
+    <div class="head-action">
+        <div class="toggle-btn"></div>
+        <div class="light-btn"></div>
+        <div class="search-btn"></div>
+    </div>
+    <form class="head-search" method="post">
+        <input type="text" name="s" placeholder="搜索什么？">
+    </form>
+    <nav class="head-menu">
+        <a href="/">首页</a>
+        <div class="has-child">
+            <a>分类</a>
+            <div class="sub-menu">
+                <a href="#1">vue</a>
+                <a href="#2">uniapp</a>
+                <a href="#3">微信小程序</a>
+                <a href="#3">实用工具</a>
+            </div>
+        </div>
+        
+    </nav>
+</header>
+
+    <main>
+    <div class="wrap min">
+        <section class="post-title">
+            <h2>上架 IOS 应用到 APP Store流程</h2>
+            <div class="post-meta">
+                <time class="date">2024.04.02</time>
+            
+            </div>
+        </section>
+        <article class="post-content">
+        
+            <h2 id="1-申请苹果开发者账号">1.申请苹果开发者账号</h2>
+<p>注册苹果开发者账号，并且加入“IOS Developer Mac OS 10.9以上系统”。</p>
+<ul>
+<li>打开<a target="_blank" rel="noopener" href="https://appleid.apple.com/account">苹果id注册地址</a>，输入相关信息；</li>
+<li>注册成功了，或者有苹果账号了，登录<a target="_blank" rel="noopener" href="https://appleid.apple.com/sign-in">苹果开发者中心</a>;</li>
+<li>用iPhone，在【App Developer】 app 安装并且安装提示相关信息和缴费。</li>
+<li>按照提示完成所有操作，等待邮箱成功的邮件即可。(缴费成功后24-48小时邮箱收到购买成功信息)。</li>
+</ul>
+<p>##2.创建唯一标示符App IDs</p>
+<p>2.1进入 <a target="_blank" rel="noopener" href="https://developer.apple.com/account/resources/identifiers/list">苹果开发者中心</a>，选择 Indentifiers 点击右边【蓝色+号】；</p>
+<img src="https://gitee.com/lxywzh/blogs-img/raw/master/2.1-苹果开发者登录首页.png" alt="2.1-苹果开发者登录首页" style="zoom:50%;" />
+<p>2.2 在打开的【添加Identifier】按步骤点击下图红框标注的部分，如下图所示。</p>
+<img src="https://gitee.com/lxywzh/blogs-img/raw/master/2.2-Identifiers列表.png" alt="2.2-Identifiers列表" style="zoom: 50%;" />
+<p>2.2 选择添加的Identifie id 的类型为App IDs，点击【Continue 】 按钮，进入下一步；</p>
+<img src="https://gitee.com/lxywzh/blogs-img/raw/master/2.2-选择APP IDs.png" alt="2.2-选择APP IDs" style="zoom: 67%;" />
+<p>2.3 选择 Identifie 对应的类型为 【App】,点击【Continue】按钮，进入下一步；</p>
+<img src="https://gitee.com/lxywzh/blogs-img/raw/master/2.3-选择类型.png" alt="2.3-选择类型" style="zoom: 67%;" />
+<p>2.4 填写注册App ID的内容，填写下图红框选中部分的内容【Description】和【Bundle ID】；</p>
+<img src="https://gitee.com/lxywzh/blogs-img/raw/master/2.4-填写APP ID信息及功能.png" alt="2.4-填写APP ID信息及功能" style="zoom: 67%;" />
+<p>2.5 选择App Capabilities，在注册页面下方的Capabilities 中选择一下选项:</p>
+<img src="https://gitee.com/lxywzh/blogs-img/raw/master/2.4-功能服务.jpg" alt="2.4-功能服务" style="zoom: 50%;" />
+<p>2.6 选择完成后点击【Continue】按钮，然后在点击【Register】按钮，Identifiers列表新增的APP ID信息，代表注册成功。</p>
+<img src="https://gitee.com/lxywzh/blogs-img/raw/master/2.5-提交APP IDs信息.png" alt="2.5-提交APP IDs信息" style="zoom: 67%;" />
+<p>##3.申请APP发布密码</p>
+<p>打开[apple id][<a target="_blank" rel="noopener" href="https://appleid.apple.com/">https://appleid.apple.com/</a>]管理中心，登录开发者账号。</p>
+<p><img src="https://gitee.com/lxywzh/blogs-img/raw/master/%E7%94%9F%E6%88%90APP-ID%E5%AF%86%E7%A0%81.jpg" alt="生成APP-ID密码"></p>
+<h2 id="4-申请发布证书-描述文件">4.申请发布证书 / 描述文件</h2>
+<h3 id="4-1-Windows系统">4.1 Windows系统</h3>
+<blockquote>
+<p>申请前准备：</p>
+<ol>
+<li>
+<p>先去<a target="_blank" rel="noopener" href="https://www.applicationloader.net/">App Uploader官网</a>下载windows版本的工具。</p>
+</li>
+<li>
+<p>下载好工具然后打开，用之前的开发者账号登录。</p>
+</li>
+</ol>
+</blockquote>
+<h4 id="4-1-1-申请发布证书">4.1.1 申请发布证书</h4>
+<p>(1) 点击左侧证书管理，然后点击右上角创建 。</p>
+<p><img src="https://gitee.com/lxywzh/blogs-img/raw/master/696b7c6df644455299b10ad2d8bb861f.png" alt="在这里插入图片描述"></p>
+<p>（2） 点击创建之后进入创建证书流程，根据你是要测试/发布，选择不同的证书 。</p>
+<p><img src="https://gitee.com/lxywzh/blogs-img/raw/master/d3023891d2a64557b3f7fe154f716ee5.png" alt="在这里插入图片描述"></p>
+<p>（2.1）  如果是测试选择如下</p>
+<p><img src="https://gitee.com/lxywzh/blogs-img/raw/master/e80c89b4f5a84863a8b1ab12eb823948.png" alt="在这里插入图片描述"></p>
+<p>(2.2) 如果是要上架appstore选择如下：</p>
+<p><img src="https://gitee.com/lxywzh/blogs-img/raw/master/633e5cac5c494df59e6642105c2adf66.png" alt="在这里插入图片描述"></p>
+<p>(3)  选择好类型后然后按要求，填好证书名称和密码，密码记得要保存，后面打包需要用到。然后点击证书对应的另存为保存到电脑，后续打包会用到。</p>
+<p><img src="https://gitee.com/lxywzh/blogs-img/raw/master/778411b10e564259b69a7efe71fcb7c0.png" alt="在这里插入图片描述"></p>
+<h4 id="41-2申请描述文件">41.2申请描述文件</h4>
+<p>(1) 点击左侧描述文件管理，然后点击右上角创建 。</p>
+<p><img src="https://gitee.com/lxywzh/blogs-img/raw/master/09e1e5e5f06e498bbaafd4909241fdae.png" alt="在这里插入图片描述"></p>
+<p>（2）  描述文件名称随意填写，类型根据你需求来;</p>
+<blockquote>
+<p>选择开发创建时顺便选择测试设备，打测试包时需要配置测试机信息</p>
+</blockquote>
+<p><img src="https://gitee.com/lxywzh/blogs-img/raw/master/94309ada1c9a43de83f7cb8170c80fc8.png" alt="在这里插入图片描述"></p>
+<p>(3)  如果之前步骤都没问题，Bundle ID点击下拉会出现选项，证书也会出现对应类型的证书，比如你选的类型是iOS应用开发，则会出现你创建的对应的开发版证书，勾选证书。</p>
+<p><img src="https://gitee.com/lxywzh/blogs-img/raw/master/01dd9e13cdcc46be9113497392fe15b8.png" alt="在这里插入图片描述"></p>
+<p>(4)  添加测试设备，用iphone连接电脑并信任，会自动识别到，或者通过右侧添加测试设备按钮通过uuid来添加</p>
+<p><img src="https://gitee.com/lxywzh/blogs-img/raw/master/2e1f2fbaa915403c91b0aedb01b24328.png" alt="在这里插入图片描述"></p>
+<p>(5)  最后确认之后你可以生成对应的开发版或者appstore版本描述文件，然后点击描述文件下载，保存到电脑，后面打包需要用到</p>
+<p><img src="https://gitee.com/lxywzh/blogs-img/raw/master/edf9c7db5a894759bb7692ae7b2ac03f.png" alt="在这里插入图片描述"></p>
+<p>###4.2 IOS 系统（使用mac 苹果电脑）</p>
+<h4 id="4-2-1-申请开发证书">4.2.1 申请开发证书</h4>
+<p>(1) 进入<a target="_blank" rel="noopener" href="https://developer.apple.com/account/resources/certificates/list">苹果开发者中心</a>，选择 Certificates 点击右边【蓝色+号】；</p>
+<p><img src="https://gitee.com/lxywzh/blogs-img/raw/master/1702723385734.png" alt="1702723385734"></p>
+<p>(2) 根据开发需求选择对应的证书类型，然后点击 【Continue】;( Development 为开发证书，Distribution为发布证书 )</p>
+<p><img src="https://gitee.com/lxywzh/blogs-img/raw/master/1702723664846.png" alt="1702723664846"></p>
+<p>(3)  接下来需要用到刚刚生成的证书请求文件（钥匙串访问工具生成的文件），点击【“Choose File…”】选择刚刚保存到本地的 “CertificateSigningRequest.certSigningRequest”文件，点击 【Continue】 生成证书文件：</p>
+<blockquote>
+<p>Tips：创建Certificate Signing Request方法请点击这里，注：需要一台苹果电脑</p>
+</blockquote>
+<p><img src="https://gitee.com/lxywzh/blogs-img/raw/master/1702723870302.png" alt="1702723870302"></p>
+<p>(4) 证书生成成功，返回证书列表，选择证书，点击 【Download】 将证书下载至本地。</p>
+<p><img src="https://gitee.com/lxywzh/blogs-img/raw/master/1702724002911.png" alt="1702724002911"></p>
+<h4 id="4-2-2-生成-p12-文件">4.2.2 生成 .p12 文件</h4>
+<p>(1)打开刚才下载的文件  双击文件，生成一条证书信息；</p>
+<blockquote>
+<p>注意事项：</p>
+<ul>
+<li>
+<p>如果双击ios_development.cer文件没有打开钥匙串访问，关闭钥匙串进程即可; (结束进程快捷键 command+option+esc)；</p>
+</li>
+<li>
+<p>证书一定有效的不然导出的格式不对(踩坑);</p>
+</li>
+<li>
+<p>检测&quot;Apple Worldwide Developer Relations Certification Authority&quot;这个证书给删除了导致，如下图红色方框所示：</p>
+</li>
+</ul>
+<p><img src="https://gitee.com/lxywzh/blogs-img/raw/master/%E4%B8%8D%E4%BF%A1%E4%BB%BB%E8%AF%81%E4%B9%A6.jpg" alt="不信任证书"></p>
+</blockquote>
+<blockquote>
+<p>解决方案:</p>
+<p>①重新下载&quot;Apple Worldwide Developer Relations Certification Authority&quot;证书并安装,进入苹果官网的支持模块下载，链接地址：<a target="_blank" rel="noopener" href="https://www.apple.com/certificateauthority/">Apple PKI - Apple</a>。<img src="https://gitee.com/lxywzh/blogs-img/raw/master/1702724718377.png" alt="1702724718377" style="zoom:67%;" /></p>
+</blockquote>
+<blockquote>
+<p>②找到对应证书方法： 双击不受信任的证书找到组织单位</p>
+<p><img src="https://gitee.com/lxywzh/blogs-img/raw/master/%E8%AF%81%E4%B9%A6%E6%89%80%E5%B1%9E%E7%9A%84%E9%98%BB%E6%AD%A2%E5%8D%95%E4%BD%8D.jpg" alt="证书所属的阻止单位"></p>
+</blockquote>
+<blockquote>
+<p>③回到官网下载对应G3(下载即可 无需多余操作)  <img src="https://gitee.com/lxywzh/blogs-img/raw/master/1702724703620.png" alt="1702724703620"></p>
+</blockquote>
+<blockquote>
+<p>④然后把下载后的证书拖到登陆&gt;证书里面  。重新双击打开项目，问题解决。 <img src="https://gitee.com/lxywzh/blogs-img/raw/master/%E6%8B%96%E5%85%A5%E5%AE%89%E5%85%A8%E8%AF%81%E4%B9%A6.jpg" alt="拖入安全证书"></p>
+</blockquote>
+<p>(2) 在证书列表找到 .cer 生成的文件。右击导出项目 <img src="https://gitee.com/lxywzh/blogs-img/raw/master/%E5%AF%BC%E5%87%BA%E9%A1%B9%E7%9B%AE.jpg" alt="导出项目"></p>
+<p>(3)选择.p12格式的，如果无法选择.p12格式的那么证书是不受信任的。</p>
+<p><img src="https://gitee.com/lxywzh/blogs-img/raw/master/%E9%80%89%E6%8B%A9-p12-%E6%A0%BC%E5%BC%8F%E8%AF%81%E4%B9%A6.jpg" alt="img"></p>
+<p>(4)这个密码是uniapp后面打包需要使用到的一定要记住 。至此，我们已经完成了开发证书的全部流程。</p>
+<p><img src="https://gitee.com/lxywzh/blogs-img/raw/master/%E8%BE%93%E5%85%A5%E5%AF%86%E7%A0%81.jpg" alt="输入密码"></p>
+<h4 id="4-2-3添加测试设备">4.2.3添加测试设备</h4>
+<blockquote>
+<p>Tips：如果需要测试安装包，则需要添加测试设备；如需要测试，该步骤可以省略。</p>
+</blockquote>
+<p>(1)在左侧功能栏选择 “Devices” ，在打开的页面中点击 “Register a New Device”;</p>
+<img src="https://gitee.com/lxywzh/blogs-img/raw/master/image-20240329184844665.png" alt="image-20240329184844665" style="zoom: 50%;" />
+<p>(2) 在注册新设备页面输入设备名称和设备的UDID，点击 “Continue” 按钮；</p>
+<img src="https://gitee.com/lxywzh/blogs-img/raw/master/image-20240329185116079.png" alt="image-20240329185116079" style="zoom: 50%;" />
+<p>(3) 进入添加设备确认页，该页面会显示刚才添加设备的信息。确认无误，点击 “Reigster” 按钮完成添加设备。</p>
+<img src="https://gitee.com/lxywzh/blogs-img/raw/master/1774399-6a697fa26db59452.png" alt="img" style="zoom:67%;" />
+<h4 id="4-2-4-申请描述文件">4.2.4 申请描述文件</h4>
+<p>(1)进入<a target="_blank" rel="noopener" href="https://developer.apple.com/account/resources/certificates/list">苹果开发者中心</a>，，选择 Profiles 点击右边【蓝色+号】；</p>
+<img src="https://gitee.com/lxywzh/blogs-img/raw/master/1702725348417.png" alt="1702725348417" style="zoom:67%;" />
+<p>(2)根据开发需求选择对应类型的， 然后点击 【Continue】</p>
+<blockquote>
+<p>iOS打包时常用的的三种类型的Profile<br>
+Development: 开发调试<br>
+Ad Hoc: 内部测试<br>
+App Store：上线到苹果商店时用到</p>
+</blockquote>
+<img src="https://gitee.com/lxywzh/blogs-img/raw/master/1702725533191.png" alt="1702725533191" style="zoom:67%;" />
+<p>(3)这里要选择之前创建的 “App ID” ，点击“Continue”：</p>
+ <img src="https://gitee.com/lxywzh/blogs-img/raw/master/描述文件-选择APP-ID.jpg" alt="描述文件-选择APP-ID" style="zoom: 80%;" />
+<p>(4) 选择设备，选择在 添加设备 步骤时添加的设备。</p>
+<blockquote>
+<p>Tips：此时选择的设备可以安装测试安装包，如果不选择则打出来的安装包不能在此设备中安装。</p>
+</blockquote>
+<img src="https://gitee.com/lxywzh/blogs-img/raw/master/1774399-a97d4e3f1f5fd863.png" alt="img" style="zoom:80%;" />
+<p>(5)  接下来输入描述文件的名称, 点击 “Generate” 生成描述文件：</p>
+<blockquote>
+<p>Profile命名建议：</p>
+<p>Development: xxForDeBug</p>
+<p>Ad Hoc(内部测试): xxForAdHoc</p>
+<p>App Store: xxForAppStore</p>
+<p>注：xx为App的Identifie最后字段，如 com.lan.less，则建议xxx为less。</p>
+</blockquote>
+<img src="https://gitee.com/lxywzh/blogs-img/raw/master/输入描述文件名称.jpg" alt="输入描述文件名称" style="zoom:80%;" />
+<p>(6)  然后点击 “Download” 将描述文件下载到本地（文件后缀为 .mobileprovision） ；</p>
+<img src="https://gitee.com/lxywzh/blogs-img/raw/master/1774399-44eb6b4adbb4f4ec.png" alt="img" style="zoom:80%;" />
+<h2 id="5-选择证书编译打包">5.选择证书编译打包</h2>
+<p>以uniapp使用Hbuilderx打appstore包为例 ， Bundle ID和密码还有证书和描述文件都是之前生成好的，等待云打包完成，然后下载ipa安装包。</p>
+<blockquote>
+<p>1.Bundle ID：填写前面流程中 2.4 创建App ID时填写的 Bundle ID值；</p>
+<p>2.证书私钥密码：填写前面流程 3.申请App发布密码中生成的密码；</p>
+</blockquote>
+<img src="https://gitee.com/lxywzh/blogs-img/raw/master/image-20240330123000046.png" alt="image-20240330123000046" style="zoom: 80%;" /> 
+<h2 id="6-创建APP并填写信息">6.创建APP并填写信息</h2>
+<blockquote>
+<p>Tips：根据法律最新规定，App Store上传APP需要获得App备案信息，请务必提前申请App备案号。</p>
+</blockquote>
+<p>(1) 进入 <a target="_blank" rel="noopener" href="https://appstoreconnect.apple.com/apps">App Store Connect</a> ,点击【蓝色+号】，新建APP</p>
+<p><img src="https://gitee.com/lxywzh/blogs-img/raw/master/1702721511105.png" alt="1702721511105"></p>
+<p>(2) 选择平台 【ios】，填入ID</p>
+<img src="https://gitee.com/lxywzh/blogs-img/raw/master/image-20240330164851738.png" alt="image-20240330164851738" style="zoom:67%;" />
+<p>(3) 创建好APP之后进入应用详情页，将App相关信息，销售价格，App隐私等配置好。这里因为不是通用配置，按照自己需求来即可。</p>
+<img src="https://gitee.com/lxywzh/blogs-img/raw/master/image-20240330165941780.png" alt="image-20240330165941780" style="zoom: 67%;" />
+<p>(4)  按照屏幕尺寸上传应用截图，描述信息，技术支持网址，版权信息等等。</p>
+<blockquote>
+<ul>
+<li>应用截图可以使用在线工具<a target="_blank" rel="noopener" href="https://www.yunedit.com/update/jietu/index">屏幕截图</a>完成; 注意尺寸大小;</li>
+<li>如果只发布手机，不发布ipad，不要上传ipad尺寸；</li>
+<li>技术支持网站自己建立H5网站，这个网站内容必须包含技术支持电话；</li>
+<li>如果APP使用相册，扫一扫，麦克风等功能，需要在uniapp项目中的 mainfest.json 文件中填写描述信息</li>
+</ul>
+</blockquote>
+<img src="https://gitee.com/lxywzh/blogs-img/raw/master/image-20240330165503057.png" alt="image-20240330165503057" style="zoom: 50%;" />
+<img src="https://gitee.com/lxywzh/blogs-img/raw/master/image-20240330165606615.png" alt="image-20240330165606615" style="zoom: 50%;" />
+<p>(5)  所有信息都填好了，点击右上角【存储】保存相关信息。</p>
+<h2 id="7-上传IPA到App-Store">7. 上传IPA到App Store</h2>
+<h3 id="7-1-Windows-系统">7.1 Windows 系统</h3>
+<p>(1)打开【App Uploader】软件，点击右侧提交上传，右上角选择IPA，选择我们上一节打包好的ipa文件，然后等待上传完成。  <img src="https://gitee.com/lxywzh/blogs-img/raw/master/image-20240330165831449.png" alt="image-20240330165831449" style="zoom: 50%;" /></p>
+<p>(2) 注意这里上传有可能会报上传报错，可能是你所在的网络对某些ip访问做了限制。这时候可以用手机开个热点重新上传，基本都能上传成功。上传成功之后，稍微等待几分钟，然后登录App Store Connect,找到TestFlight选项，查看你所上传的版本正在处理，等待处理完成，会显示准备提交。</p>
+<p><img src="https://gitee.com/lxywzh/blogs-img/raw/master/%E6%8F%90%E4%BA%A4%E6%9E%84%E5%BB%BA%E7%89%88%E6%9C%AC.jpg" alt="提交构建版本"></p>
+<h3 id="6-2-IOS系统">6.2 IOS系统</h3>
+<p>在应用商店购买和下载 “Transporter”， 登录开发者账号。只要将安装包拖拽放到 “Transporter” 中即可开始使用。可同时验证和上传多个文件交付。</p>
+<p><img src="https://gitee.com/lxywzh/blogs-img/raw/master/image-20240330171215323.png" alt="image-20240330171215323"></p>
+<h2 id="8-构建版本">8. 构建版本</h2>
+<p>(1)选择构建版本，上节中的版本显示准备提交后，这里会出现蓝色加号可以选择版本。</p>
+<img src="https://gitee.com/lxywzh/blogs-img/raw/master/%E6%8F%90%E4%BA%A4%E6%9E%84%E5%BB%BA%E7%89%88%E6%9C%AC.jpg" style="zoom:67%;" />
+<p>(2) 选择好版本，然后点击右上角存储，存储完成再点击右上角提交以供审核。至此，我们的APP已经成功提交到appstore，耐心等待审核结果就行。</p>
+<p><img src="https://gitee.com/lxywzh/blogs-img/raw/master/640" alt="图片"></p>
+<p>##9.上传ipa 文件时遇到的常见问题及解决方法</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token number">1.</span>什么是<span class="token constant">ITMS</span><span class="token operator">-</span><span class="token number">90478</span>和<span class="token constant">ITMS</span><span class="token operator">-</span><span class="token number">90062</span>错误？
+在提交应用到App Store时，如果出现<span class="token constant">ITMS</span><span class="token operator">-</span><span class="token number">90478</span>和<span class="token constant">ITMS</span><span class="token operator">-</span><span class="token number">90062</span>错误，通常是因为当前上传的版本号小于已经上传到App Store的版本号。具体来说，<span class="token constant">ITMS</span><span class="token operator">-</span><span class="token number">90478</span>错误表示上传的版本号小于之前已上传的构建版本号，而<span class="token constant">ITMS</span><span class="token operator">-</span><span class="token number">90062</span>错误表示上传的版本号小于之前已上架的版本号。
+<span class="token number">2.</span> 解决方法
+为了解决<span class="token constant">ITMS</span><span class="token operator">-</span><span class="token number">90478</span>和<span class="token constant">ITMS</span><span class="token operator">-</span><span class="token number">90062</span>错误，我们需要确保新上传的版本号大于之前已上传或上架的版本号。下面是解决方法的具体步骤：
+<span class="token number">2.1</span> 确定当前的版本号和构建号
+首先，我们需要确定当前应用的版本号和构建号。版本号是由三个数字组成的，如<span class="token number">1.0</span><span class="token number">.0</span>，而构建号则是一个单独的数字。
+<span class="token number">2.2</span> 递增版本号和构建号
+接下来，我们需要递增版本号和构建号，确保新上传的版本号大于之前已上传或上架的版本号。根据苹果的规定，版本号应该是递增的，且新上传的构建号必须大于之前已上传的构建号。
+<span class="token number">2.3</span> 再次尝试提交应用
+在完成版本号和构建号的递增后，我们可以重新尝试提交应用到App Store。确保在提交之前，版本号和构建号已经正确设置，并且大于之前已上传或上架的版本号。
+
+总结
+通过正确设置版本号和构建号，我们可以避免<span class="token constant">ITMS</span><span class="token operator">-</span><span class="token number">90478</span>和<span class="token constant">ITMS</span><span class="token operator">-</span><span class="token number">90062</span>错误的发生，并成功将应用提交到App Store。时刻关注这些细节，确保应用顺利上架，以提供更好的用户体验。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>##10.安装ipa</p>
+<p>(1) 使用【爱思助手】 接上手机、点击应用游戏，点击导入安装，选择刚打包的ipa包 <img src="https://gitee.com/lxywzh/blogs-img/raw/master/1702722681831.png" alt="1702722681831"></p>
+<p>(2)ipa将自动安装，类型是越狱版，安装成功后显示个人正版或其他正版，因为是个人ios证书打包，没上架App Store 。</p>
+<p><img src="https://gitee.com/lxywzh/blogs-img/raw/master/1702722749100.png" alt="1702722749100"></p>
+<p>(3)安装成功了第一次启动应用会出现如下提示，用测试证书或者企业证书打包的ipa都会这样，需要设置一下。</p>
+<p>点击设置、进入通用，下拉选择描述文件和设备管理。</p>
+<p><img src="https://gitee.com/lxywzh/blogs-img/raw/master/%E6%9C%AA%E6%A0%87%E9%A2%98-12.jpg" alt="未标题-12"></p>
+<p>(4)点击开发者应用下面出现的账号，信任，然后就能启动应用，不在出现提示。</p>
+<p><img src="https://gitee.com/lxywzh/blogs-img/raw/master/%E6%9C%AA%E6%A0%87%E9%A2%98-13.jpg" alt="未标题-13"></p>
+
+        </article>
+        <section class="post-near">
+            <ul>
+                
+                    <li>上一篇: 看完啦 (つд⊂)</li>
+                
+                
+                    <li>下一篇: <a href="/2024/04/02/TYPORA%E4%B8%AD%E6%96%87%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/">TYPORA中文快速上手使用教程</a></li>
+                
+            </ul>
+        </section>
+        
+    
+        <section class="post-author">
+        
+            <figure class="author-avatar">
+                <img src="https://gitee.com/lxywzh/blogs-img/raw/master/tx-3.jpg" alt="XXXXY" />
+            </figure>
+        
+            <div class="author-info">
+                <h4>XXXXY</h4>
+                <p>走在前端路程上的小坎坷</p>
+            </div>
+        </section>
+    
+    </div>
+</main>
+
+    <footer>
+    <div class="buttons">
+        <a class="to-top" href="#"></a>
+    </div>
+    <div class="wrap min">
+        <section class="widget">
+            <div class="row">
+                <div class="col-m-4">
+                    <h3 class="title-recent">最新文章：</h3>
+                    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2024/04/02/%E4%B8%8A%E6%9E%B6-IOS-%E5%BA%94%E7%94%A8%E5%88%B0-APP-Store%E6%B5%81%E7%A8%8B/">上架 IOS 应用到 APP Store流程</a></li><li class="post-list-item"><a class="post-list-link" href="/2024/04/02/TYPORA%E4%B8%AD%E6%96%87%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/">TYPORA中文快速上手使用教程</a></li><li class="post-list-item"><a class="post-list-link" href="/2024/04/02/%E7%94%9F%E6%88%90%E5%AE%89%E5%8D%93%E7%AD%BE%E5%90%8D/">生成安卓签名</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/30/vue%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%A2%98/">vue前端面试题</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/30/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/">微信小程序入门笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/25/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/">前端面试问题总结</a></li></ul>
+                </div>
+                <div class="col-m-4">
+                    <h3 class="title-date">时光机：</h3>
+                    <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/04/">四月 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">十月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">三月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">八月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">四月 2016</a></li></ul>
+                </div>
+                <div class="col-m-4">
+                    <h3 class="title-tags">标签云：</h3>
+                    <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/PS/" style="font-size: 10px;">PS</a> <a href="/tags/html/" style="font-size: 10px;">html</a> <a href="/tags/typora/" style="font-size: 10px;">typora</a> <a href="/tags/vue/" style="font-size: 10px;">vue</a> <a href="/tags/webpack/" style="font-size: 10px;">webpack</a> <a href="/tags/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/" style="font-size: 10px;">微信小程序</a> <a href="/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/" style="font-size: 10px;">面试题</a>
+                </div>
+            </div>
+        </section>
+        <section class="sub-footer">
+            <p>© 2024 <a href="/">一叶知秋</a>. All Rights Reserved. Theme By <a href="https://github.com/Dreamer-Paul/Hingle" target="_blank" rel="nofollow">Hingle</a>.</p>
+        </section>
+    </div>
+</footer>
+
+
+<script src="/static/kico.js"></script>
+<script src="/static/hingle.js"></script>
+
+
+<script>var hingle = new Paul_Hingle({"copyright":true,"night":true});</script>
+
+  </body>
+</html>
