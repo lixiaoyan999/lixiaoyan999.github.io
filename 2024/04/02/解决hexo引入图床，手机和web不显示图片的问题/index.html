@@ -58,26 +58,26 @@
         </section>
         <article class="post-content">
         
-            <h3 id="1-问题描述">1.问题描述</h3>
+            <h2 id="1-问题描述">1.问题描述</h2>
 <p>Hexo文章中采用图床方式加载的图片无法成功加载。</p>
-<h3 id="2-问题原因">2.问题原因</h3>
+<h2 id="2-问题原因">2.问题原因</h2>
 <p>####2.1Referer含义</p>
 <p>HTTP协议在请求(request)的头信息里面， 设计了一个<strong>Referer</strong>字段，提供访问来源的信息。这个字段是可选的，客户端发送请求的时候，可以自主决定是否加上该字段。</p>
-<h4 id="2-2Referer的常见作用">2.2Referer的常见作用</h4>
+<h3 id="2-2Referer的常见作用">2.2Referer的常见作用</h3>
 <p>(1)用户行为日志记录访问来源；</p>
 <p>(2)防盗链。部分网站不允许图片外链，只允许本网站才能显示图片，外部网站加载图片就会报错。通过对请求方的<strong>Referer</strong>进行判断过滤，确认是否可以访问。</p>
-<h4 id="2-3Referrer-Policy的设置方法">2.3Referrer Policy的设置方法</h4>
+<h3 id="2-3Referrer-Policy的设置方法">2.3Referrer Policy的设置方法</h3>
 <p>引用策略(Referrer Policy)就是文档发出请求时，是否在请求头部定义 <strong>Referrer</strong> 的设置。一般浏览器的默认值是：==no-referrer-when-downgrade==。</p>
 <p>(1)HTTP头部信息：服务器发送网页的时候，通过HTTP响应头中的 Referrer-Policy 字段告诉浏览器。</p>
 <pre class="line-numbers language-none"><code class="language-none">Content-Security-Policy: referrer | no-referrer | no-referrer-when-downgrade | origin | orign-when-cross-orign | unsafe-url;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>(2)**<meta>**标签：使用<meta>标签，在网页头部设置</p>
 <pre class="line-numbers language-markup" data-language="markup"><code class="language-markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>referrer<span class="token punctuation">"</span></span> <span class="token attr-name">content</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>no-referrer | no-referrer-when-downgrade | origin | orign-when-cross-orign | unsafe-url<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>(3)referrerplicy属性： <a>、<area>、<img>、<iframe>和<link>标签，可以设置referrerpolicy属性。</p>
-<pre class="line-numbers language-markup" data-language="markup"><code class="language-markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span><span class="token punctuation">"</span></span> <span class="token attr-name">referrerpolicy</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>orign<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<h3 id="3-解决办法">3.解决办法</h3>
+<pre class="line-numbers language-none"><code class="language-none">&lt;a href&#x3D;&quot;&quot; referrerpolicy&#x3D;&quot;orign&quot;&gt;&lt;&#x2F;a&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h2 id="3-解决办法">3.解决办法</h2>
 <p>【Hingle主题】主题文件夹内的(themes\hingle\layout_partial) <strong>head.ejs</strong>文件中，添加meta信息</p>
-<pre class="line-numbers language-markup" data-language="markup"><code class="language-markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>referrer<span class="token punctuation">"</span></span> <span class="token attr-name">content</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>no-referrer<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<h3 id="4-重新生成hexo">4.重新生成hexo</h3>
+<pre class="line-numbers language-none"><code class="language-none">&lt;meta name&#x3D;&quot;referrer&quot; content&#x3D;&quot;no-referrer&quot; &#x2F;&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h2 id="4-重新生成hexo">4.重新生成hexo</h2>
 <pre class="line-numbers language-none"><code class="language-none">hexo g<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
         </article>
@@ -121,7 +121,7 @@
             <div class="row">
                 <div class="col-m-4">
                     <h3 class="title-recent">最新文章：</h3>
-                    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2024/04/02/OS_CSR(CertificateSigningRequest)%E6%96%87%E4%BB%B6%E8%8E%B7%E5%8F%96/">IOS_CSR(CertificateSigningRequest)文件获取</a></li><li class="post-list-item"><a class="post-list-link" href="/2024/04/02/PicGo%EF%BC%88%E5%9B%BE%E5%BA%8A%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95%EF%BC%89/">PicGo（图床使用方法）</a></li><li class="post-list-item"><a class="post-list-link" href="/2024/04/02/%E5%85%B3%E4%BA%8Enpm%20%E5%AE%89%E8%A3%85%E4%BE%9D%E8%B5%96%20%E5%92%8C%20dependencies%20%E5%92%8C%20devdependencies%20%E7%9A%84%E4%BD%BF%E7%94%A8%20%E5%92%8C%20%E6%8F%8F%E8%BF%B0/">关于npm 安装依赖 和 dependencies 和 devdependencies 的使用 和 描述</a></li><li class="post-list-item"><a class="post-list-link" href="/2024/04/02/%E8%A7%A3%E5%86%B3hexo%E5%BC%95%E5%85%A5%E5%9B%BE%E5%BA%8A%EF%BC%8C%E6%89%8B%E6%9C%BA%E5%92%8Cweb%E4%B8%8D%E6%98%BE%E7%A4%BA%E5%9B%BE%E7%89%87%E7%9A%84%E9%97%AE%E9%A2%98/">解决hexo引入图床，不显示图片的问题</a></li><li class="post-list-item"><a class="post-list-link" href="/2024/04/02/%E8%AE%B0%E5%BD%95app%E4%B8%8A%E6%9E%B6APP%20Store%E5%85%A8%E6%B5%81%E7%A8%8B/">记录app上架APP Store全流程</a></li><li class="post-list-item"><a class="post-list-link" href="/2024/04/02/TYPORA%E4%B8%AD%E6%96%87%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/">TYPORA中文快速上手使用教程</a></li></ul>
+                    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2024/04/02/IOS_CSR(CertificateSigningRequest)%E6%96%87%E4%BB%B6%E8%8E%B7%E5%8F%96/">IOS_CSR(CertificateSigningRequest)文件获取</a></li><li class="post-list-item"><a class="post-list-link" href="/2024/04/02/PicGo%EF%BC%88%E5%9B%BE%E5%BA%8A%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95%EF%BC%89/">PicGo（图床使用方法）</a></li><li class="post-list-item"><a class="post-list-link" href="/2024/04/02/%E5%85%B3%E4%BA%8Enpm%20%E5%AE%89%E8%A3%85%E4%BE%9D%E8%B5%96%20%E5%92%8C%20dependencies%20%E5%92%8C%20devdependencies%20%E7%9A%84%E4%BD%BF%E7%94%A8%20%E5%92%8C%20%E6%8F%8F%E8%BF%B0/">关于npm 安装依赖 和 dependencies 和 devdependencies 的使用 和 描述</a></li><li class="post-list-item"><a class="post-list-link" href="/2024/04/02/%E8%A7%A3%E5%86%B3hexo%E5%BC%95%E5%85%A5%E5%9B%BE%E5%BA%8A%EF%BC%8C%E6%89%8B%E6%9C%BA%E5%92%8Cweb%E4%B8%8D%E6%98%BE%E7%A4%BA%E5%9B%BE%E7%89%87%E7%9A%84%E9%97%AE%E9%A2%98/">解决hexo引入图床，不显示图片的问题</a></li><li class="post-list-item"><a class="post-list-link" href="/2024/04/02/%E8%AE%B0%E5%BD%95app%E4%B8%8A%E6%9E%B6APP%20Store%E5%85%A8%E6%B5%81%E7%A8%8B/">记录app上架APP Store全流程</a></li><li class="post-list-item"><a class="post-list-link" href="/2024/04/02/TYPORA%E4%B8%AD%E6%96%87%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/">TYPORA中文快速上手使用教程</a></li></ul>
                 </div>
                 <div class="col-m-4">
                     <h3 class="title-date">时光机：</h3>
