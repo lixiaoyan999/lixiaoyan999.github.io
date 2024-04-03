@@ -70,8 +70,8 @@
 <p>引用策略(Referrer Policy)就是文档发出请求时，是否在请求头部定义 <strong>Referrer</strong> 的设置。一般浏览器的默认值是：==no-referrer-when-downgrade==。</p>
 <p>(1)HTTP头部信息：服务器发送网页的时候，通过HTTP响应头中的 Referrer-Policy 字段告诉浏览器。</p>
 <pre class="line-numbers language-none"><code class="language-none">Content-Security-Policy: referrer | no-referrer | no-referrer-when-downgrade | origin | orign-when-cross-orign | unsafe-url;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>(2)**<meta>**标签：使用<meta>标签，在网页头部设置</p>
-<pre class="line-numbers language-markup" data-language="markup"><code class="language-markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>referrer<span class="token punctuation">"</span></span> <span class="token attr-name">content</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>no-referrer | no-referrer-when-downgrade | origin | orign-when-cross-orign | unsafe-url<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>(2)** meta**标签：使用 meta标签，在网页头部设置</p>
+<pre class="line-numbers language-none"><code class="language-none">&lt;meta name&#x3D;&quot;referrer&quot; content&#x3D;&quot;no-referrer | no-referrer-when-downgrade | origin | orign-when-cross-orign | unsafe-url&quot;&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>(3)referrerplicy属性： <a>、<area>、<img>、<iframe>和<link>标签，可以设置referrerpolicy属性。</p>
 <pre class="line-numbers language-none"><code class="language-none">&lt;a href&#x3D;&quot;&quot; referrerpolicy&#x3D;&quot;orign&quot;&gt;&lt;&#x2F;a&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <h2 id="3-解决办法">3.解决办法</h2>
