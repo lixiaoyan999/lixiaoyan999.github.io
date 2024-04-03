@@ -3,7 +3,7 @@
   <head>
      
     <meta charset="UTF-8">
-    <title>前端面试问题总结 - 一叶知秋</title>
+    <title>PicGo（图床使用方法） - 一叶知秋</title>
     <link rel="shortcut icon" href="/static/img/icon.png">
     <link rel="icon" href="/static/img/icon.png" sizes="192x192"/>
     
@@ -15,7 +15,7 @@
 
     <meta name="viewport" content="width=device-width, maximum-scale=1, initial-scale=1"/>
     <meta property="og:site_name" content="一叶知秋">
-    <meta property="og:title" content="前端面试问题总结"/>
+    <meta property="og:title" content="PicGo（图床使用方法）"/>
     <meta name="referrer" content="no-referrer" />
     
     <style>body:before{ content: ''; background-image: url(https://api.paugram.com/wallpaper?source=gh) }</style>
@@ -50,69 +50,78 @@
     <main>
     <div class="wrap min">
         <section class="post-title">
-            <h2>前端面试问题总结</h2>
+            <h2>PicGo（图床使用方法）</h2>
             <div class="post-meta">
-                <time class="date">2018.10.25</time>
+                <time class="date">2024.04.02</time>
             
             </div>
         </section>
         <article class="post-content">
         
-            <blockquote>这篇文章上次修改于 1987 天前，可能其部分内容已经发生变化，如有疑问可询问作者。</blockquote>
-        
-            <h2 id="目录">目录</h2>
+            <blockquote>
+<p>前言:</p>
+<p>在使用Typora文档中插图图片时，如果是本地图片，那么在网站上发布时，就会因为转存失败而无法显示图片。如果将图片上传到github或gitee[2]上，那么在本地编辑时，图片就无法显示。</p>
+<p>为了解决这个问题，需要先将图片上传到图床，并获取该图片的URL链接，再将该链接插入到markdown文档中，此时再进行网站上的发布，就可以正常显示图片了。</p>
+<p>这里是利用picgo+typora+gitee搭建图床的过程。之所以没有用github，是因为某些时候，github的图片链接会失效，而gitee的图片链接则不会失效。</p>
+</blockquote>
+<p>##1.注册码云账号</p>
+<p>码云是一个类似于github的网站，注册码云账号，用于存放图片。首先需要新建一个repo，用于存放图片。</p>
+<p>(1)创建一个公开的仓库。</p>
+<img src="https://gitee.com/lxywzh/blogs-img/raw/master/创建gitee仓库.jpg" alt="创建gitee仓库" style="zoom:67%;" />
+<p>(2)创建完成后点击【初始化 Readme 文件】，完成初始化仓库。</p>
+<img src="https://gitee.com/lxywzh/blogs-img/raw/master/image-20240330184528173.png" alt="image-20240330184528173" style="zoom:67%;" />
+<p>(3)获取 Token 令牌。</p>
+<blockquote>
+<p>1.设置gitee私人令牌，后续配置gitee图床是需要填写token。</p>
+<p>2、私人令牌描述：配置图床仓库，方便自己阅读查找</p>
+<p>3、令牌权限，根据个人需求勾选</p>
+<p>4、提交设置，生成令牌。如果忘记也没事，重新生成即可。</p>
+</blockquote>
+<img src="https://gitee.com/lxywzh/blogs-img/raw/master/生成token令牌.jpg" alt="生成token令牌" style="zoom:67%;" />
+<img src="https://gitee.com/lxywzh/blogs-img/raw/master/image-20240330185201315.png" alt="image-20240330185201315" style="zoom:67%;" />
+<h2 id="2-PicGo图床">2.PicGo图床</h2>
+<p>(1)下载。[官网地址][<a target="_blank" rel="noopener" href="https://picgo.github.io/PicGo-Doc/zh/guide/#%E4%B8%8B%E8%BD%BD%E5%AE%89%E8%A3%85">https://picgo.github.io/PicGo-Doc/zh/guide/#下载安装</a>]</p>
+<blockquote>
+<p>PicGo.app和PicGo-Core的区别?</p>
 <ul>
-<li><a target="_blank" rel="noopener" href="https://github.com/flymejie/FE-Interview-Questions/blob/master/HTML.md">HTML</a></li>
-<li><a target="_blank" rel="noopener" href="https://github.com/flymejie/FE-Interview-Questions/blob/master/CSS.md">CSS</a></li>
-<li><a target="_blank" rel="noopener" href="https://github.com/flymejie/FE-Interview-Questions/blob/master/JavaScript.md">JavaScript</a></li>
-<li><a target="_blank" rel="noopener" href="https://github.com/flymejie/FE-Interview-Questions/blob/master/jQuery.md">jQuery</a></li>
-<li><a target="_blank" rel="noopener" href="https://github.com/flymejie/FE-Interview-Questions/blob/master/Ajax.md">Ajax</a></li>
-<li><a target="_blank" rel="noopener" href="https://github.com/flymejie/FE-Interview-Questions/blob/master/HTTP.md">HTTP</a></li>
-<li><a target="_blank" rel="noopener" href="https://github.com/flymejie/FE-Interview-Questions/blob/master/Front-end-frame-relative.md">Front-end-frame-relative</a></li>
-<li><a target="_blank" rel="noopener" href="https://github.com/flymejie/FE-Interview-Questions/blob/master/Json-XML.md">Json-XML</a></li>
-<li><a target="_blank" rel="noopener" href="https://github.com/flymejie/FE-Interview-Questions/blob/master/localStorage.md">localStorage</a></li>
-<li><a target="_blank" rel="noopener" href="https://github.com/flymejie/FE-Interview-Questions/blob/master/mobile-terminal.md">mobile-terminal</a></li>
-<li><a target="_blank" rel="noopener" href="https://github.com/flymejie/FE-Interview-Questions/blob/master/Modules.md">Modules</a></li>
-<li><a target="_blank" rel="noopener" href="https://github.com/flymejie/FE-Interview-Questions/blob/master/performance-optimization.md">performance-optimization</a></li>
-<li><a target="_blank" rel="noopener" href="https://github.com/flymejie/FE-Interview-Questions/blob/master/PS.md">PS</a></li>
-<li><a target="_blank" rel="noopener" href="https://github.com/flymejie/FE-Interview-Questions/blob/master/SEO.md">SEO</a></li>
-<li><a target="_blank" rel="noopener" href="https://github.com/flymejie/FE-Interview-Questions/blob/master/ES6.md">ES6</a></li>
-<li><a target="_blank" rel="noopener" href="https://github.com/flymejie/FE-Interview-Questions/blob/master/cross-domain.md">cross-domain</a></li>
-<li><a target="_blank" rel="noopener" href="https://github.com/flymejie/FE-Interview-Questions/blob/master/cookie.md">cookie</a></li>
-<li><a target="_blank" rel="noopener" href="https://github.com/flymejie/FE-Interview-Questions/blob/master/MVC.md">MVC</a></li>
-<li><a target="_blank" rel="noopener" href="https://github.com/flymejie/FE-Interview-Questions/blob/master/Git.md">Git</a></li>
-<li><a target="_blank" rel="noopener" href="https://github.com/flymejie/FE-Interview-Questions/blob/master/data-structure.md">data-structure</a></li>
-<li><a target="_blank" rel="noopener" href="https://github.com/flymejie/FE-Interview-Questions/blob/master/dataBase.md">dataBase</a></li>
-<li><a target="_blank" rel="noopener" href="https://github.com/flymejie/FE-Interview-Questions/blob/master/Handwritten-code.md">Handwritten-code</a></li>
-<li><a target="_blank" rel="noopener" href="https://github.com/flymejie/FE-Interview-Questions/blob/master/computer-basic-knowledge.md">computer-basic-knowledge</a></li>
-<li><a target="_blank" rel="noopener" href="https://github.com/flymejie/FE-Interview-Questions/blob/master/other.md">other</a></li>
-<li><a target="_blank" rel="noopener" href="https://github.com/flymejie/FE-Interview-Questions/blob/master/comprehensive.md">comprehensive</a></li>
-<li><a target="_blank" rel="noopener" href="https://github.com/flymejie/FE-Interview-Questions/blob/master/vue.md">vue</a></li>
-<li><a target="_blank" rel="noopener" href="https://github.com/flymejie/FE-Interview-Questions/blob/master/react.md">react</a></li>
-<li><a target="_blank" rel="noopener" href="https://github.com/flymejie/FE-Interview-Questions/blob/master/MVVM.md">MVVM</a></li>
-<li><a target="_blank" rel="noopener" href="https://github.com/flymejie/FE-Interview-Questions/blob/master/%E6%B5%8F%E8%A7%88%E5%99%A8.md">浏览器</a></li>
-<li><a target="_blank" rel="noopener" href="https://github.com/flymejie/FE-Interview-Questions/blob/master/%E6%80%A7%E8%83%BD.md">性能</a></li>
+<li>PicGo.app 提供图形用户界面，而PicGo-Core只有命令行界面</li>
+<li>PicGo-Core 上传图片耗费的计算机资源更少，只有在上传图片时进程才会运行，上传结束后(成功或失败)进程都会退出；PicGo.app 会一直保持运行，不会自动退出，而且由于是程序，因此消耗的资源会更多</li>
 </ul>
-<h2 id="综合版本"><a target="_blank" rel="noopener" href="https://github.com/flymejie/FE-Interview-Questions#%E7%BB%BC%E5%90%88%E7%89%88%E6%9C%AC"></a>综合版本</h2>
-<ul>
-<li><a target="_blank" rel="noopener" href="https://github.com/flymejie/FE-Interview-Questions/blob/master/Interview-Questions/Front-end-Developer-Questions%5Bquestion-version%5D.md">Interview-Questions</a></li>
-<li>[Front-end-Developer-Questions<a target="_blank" rel="noopener" href="https://github.com/flymejie/FE-Interview-Questions/blob/master/Interview-Questions/Front-end-Developer-Questions%5Bquestion-and-answer-version%5D.md">question-and-answer-versio]</a></li>
-</ul>
+</blockquote>
+<p>(2)PicGo 本地配置。</p>
+<p>(2.1)由于下载的版本没有预设gitee图床,所以需要先在插件设置中下载安装插件,结果如图(已安装完成)</p>
+<p><img src="https://gitee.com/lxywzh/blogs-img/raw/master/image-20240330185826380.png" alt="image-20240330185826380"></p>
+<p>(2.2)点击图床设置进入 Gitee 图床的设置，结果如下：</p>
+<p><img src="https://gitee.com/lxywzh/blogs-img/raw/master/image-20240330190643466.png" alt="image-20240330190643466"></p>
+<blockquote>
+<p>Tips: repo填写仓库名。部分用户gitee网址显示名称与仓库显示不一致，以网址名称为准。如 “lxywzh/111”；</p>
+</blockquote>
+<p><img src="https://gitee.com/lxywzh/blogs-img/raw/master/image-20240330190238034.png" alt="image-20240330190238034"></p>
+<p>(2.3)至此已完成配置。手动点击【设为默认图床】按钮。</p>
+<p><img src="https://gitee.com/lxywzh/blogs-img/raw/master/image-20240330190704396.png" alt="image-20240330190704396"></p>
+<p>(2.4)如果出现错误,都可以在日志文件中找到错误信息</p>
+<p><img src="https://gitee.com/lxywzh/blogs-img/raw/master/image-20240330190802593.png" alt="image-20240330190802593"></p>
+<h2 id="3-Typora配置PicGo">3.Typora配置PicGo</h2>
+<p>(1)打开Typora，文件—偏好设置–图像—打开配置文件。</p>
+<img src="https://gitee.com/lxywzh/blogs-img/raw/master/image-20240330191012295.png" alt="image-20240330191012295" style="zoom:67%;" />
+<p>(2)配置完成后，点击【验证图片上传项】,验证成功。</p>
+<p><img src="https://gitee.com/lxywzh/blogs-img/raw/master/image-20240330191234358.png" alt="image-20240330191234358"></p>
+<p>##End</p>
 
         </article>
         <section class="post-near">
             <ul>
                 
-                    <li>上一篇: <a href="/2018/10/30/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/">微信小程序入门笔记</a></li>
+                    <li>上一篇: <a href="/2024/04/02/%E5%85%B3%E4%BA%8Enpm%20%E5%AE%89%E8%A3%85%E4%BE%9D%E8%B5%96%20%E5%92%8C%20dependencies%20%E5%92%8C%20devdependencies%20%E7%9A%84%E4%BD%BF%E7%94%A8%20%E5%92%8C%20%E6%8F%8F%E8%BF%B0/">关于npm 安装依赖 和 dependencies 和 devdependencies 的使用 和 描述</a></li>
                 
                 
-                    <li>下一篇: <a href="/2018/03/20/webpack%E7%AC%94%E8%AE%B0/">webpack笔记</a></li>
+                    <li>下一篇: <a href="/2024/04/02/%E8%A7%A3%E5%86%B3hexo%E5%BC%95%E5%85%A5%E5%9B%BE%E5%BA%8A%EF%BC%8C%E6%89%8B%E6%9C%BA%E5%92%8Cweb%E4%B8%8D%E6%98%BE%E7%A4%BA%E5%9B%BE%E7%89%87%E7%9A%84%E9%97%AE%E9%A2%98/">解决hexo引入图床，不显示图片的问题</a></li>
                 
             </ul>
         </section>
         
             <section class="post-tags">
-            <a class="-none-link" href="/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/" rel="tag">面试题</a>
+            <a class="-none-link" href="/tags/PicGo-Typora-gitee/" rel="tag">PicGo + Typora + gitee</a>
             </section>
         
     

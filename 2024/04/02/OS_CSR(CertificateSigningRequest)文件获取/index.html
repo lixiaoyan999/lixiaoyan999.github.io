@@ -3,7 +3,7 @@
   <head>
      
     <meta charset="UTF-8">
-    <title>2017 年 - 一叶知秋</title>
+    <title>IOS_CSR(CertificateSigningRequest)文件获取 - 一叶知秋</title>
     <link rel="shortcut icon" href="/static/img/icon.png">
     <link rel="icon" href="/static/img/icon.png" sizes="192x192"/>
     
@@ -15,7 +15,7 @@
 
     <meta name="viewport" content="width=device-width, maximum-scale=1, initial-scale=1"/>
     <meta property="og:site_name" content="一叶知秋">
-    <meta property="og:title" content=""/>
+    <meta property="og:title" content="IOS_CSR(CertificateSigningRequest)文件获取"/>
     <meta name="referrer" content="no-referrer" />
     
     <style>body:before{ content: ''; background-image: url(https://api.paugram.com/wallpaper?source=gh) }</style>
@@ -49,37 +49,55 @@
 
     <main>
     <div class="wrap min">
-        <section class="home-title">
+        <section class="post-title">
+            <h2>IOS_CSR(CertificateSigningRequest)文件获取</h2>
+            <div class="post-meta">
+                <time class="date">2024.04.02</time>
             
-            <h1>“2017 年”</h1>
+            </div>
         </section>
-        <section class="home-posts">
-    
-    <div class="post-item">
-        <h2>
-            <a href="/2017/08/22/HTML%E7%AC%94%E8%AE%B0/">HTML笔记</a>
-        </h2>
-    
-        <p>HTML（HyperText Markup Language，超文本标记语言） 是用来定义网页结构的一种描述语言。
-HTML:超文本标记语言
-一．标签按照语法分类：
-1.单标签：开始标签
-&amp;lt...</p>
-    
-        <div class="post-meta">
-            <time class="date">2017.08.22</time>
-            
-            
-                <span class="tags"><a class="-none-link" href="/tags/html/" rel="tag">html</a></span>
-            
-        </div>
-    </div>
-    
-</section>
+        <article class="post-content">
+        
+            <p>1.找到并打开工具【钥匙串访问】。</p>
+<p><img src="https://gitee.com/lxywzh/blogs-img/raw/master/1702723061330.png" alt="1702723061330"></p>
+<p>2.移动到桌面左上角 钥匙串访问 -&gt; 证书助理 -&gt; 从证书颁发机构请求证书</p>
+<p><img src="https://gitee.com/lxywzh/blogs-img/raw/master/1977653-d452aefe12a5ec81.png" alt="img"></p>
+<p>3.进入到申请页面 。用户电子邮箱地址填你登陆开发者平台的账号 ，项目选存储到硬盘， 后面申请开发(Development)证书和发布(Production)证书时需要用到 。</p>
+<p><img src="https://gitee.com/lxywzh/blogs-img/raw/master/3.%E8%AF%81%E4%B9%A6%E5%8A%A9%E7%90%86%E9%80%89%E9%A1%B9%E5%A1%AB%E5%86%99.jpg" alt="3.证书助理选项填写"></p>
+<p>4.选择【继续】，提示保存，存储到桌面即可(文件名默认,先不建议修改 都完成再修改不然后面步骤文件名不一样)  ，该文件后缀名不可更改。</p>
+<p><img src="https://gitee.com/lxywzh/blogs-img/raw/master/4.%E5%AD%98%E5%82%A8%E8%AF%81%E4%B9%A6%E5%8A%A9%E7%90%86.jpg" alt="4.存储证书助理"></p>
+<p>5.完成 证书请求文件 申请 (这个文件只需要申请一次 后面都可以复用)</p>
+<p><img src="https://gitee.com/lxywzh/blogs-img/raw/master/5.%E5%AE%8C%E6%88%90%E8%AF%81%E4%B9%A6%E5%88%9B%E5%BB%BA.jpg" alt="5.完成证书创建"></p>
 
-        <section class="page-navigator">
-            <span class="page-number current">1</span>
+        </article>
+        <section class="post-near">
+            <ul>
+                
+                    <li>上一篇: 看完啦 (つд⊂)</li>
+                
+                
+                    <li>下一篇: <a href="/2024/04/02/%E5%85%B3%E4%BA%8Enpm%20%E5%AE%89%E8%A3%85%E4%BE%9D%E8%B5%96%20%E5%92%8C%20dependencies%20%E5%92%8C%20devdependencies%20%E7%9A%84%E4%BD%BF%E7%94%A8%20%E5%92%8C%20%E6%8F%8F%E8%BF%B0/">关于npm 安装依赖 和 dependencies 和 devdependencies 的使用 和 描述</a></li>
+                
+            </ul>
         </section>
+        
+            <section class="post-tags">
+            <a class="-none-link" href="/tags/App-Store/" rel="tag">App Store</a>
+            </section>
+        
+    
+        <section class="post-author">
+        
+            <figure class="author-avatar">
+                <img src="https://gitee.com/lxywzh/blogs-img/raw/master/tx-3.jpg" alt="XXXXY" />
+            </figure>
+        
+            <div class="author-info">
+                <h4>XXXXY</h4>
+                <p>走在前端路程上的小坎坷</p>
+            </div>
+        </section>
+    
     </div>
 </main>
 

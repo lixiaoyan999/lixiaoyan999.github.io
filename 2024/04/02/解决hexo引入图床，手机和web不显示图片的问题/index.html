@@ -3,7 +3,7 @@
   <head>
      
     <meta charset="UTF-8">
-    <title>前端面试问题总结 - 一叶知秋</title>
+    <title>解决hexo引入图床，不显示图片的问题 - 一叶知秋</title>
     <link rel="shortcut icon" href="/static/img/icon.png">
     <link rel="icon" href="/static/img/icon.png" sizes="192x192"/>
     
@@ -15,7 +15,7 @@
 
     <meta name="viewport" content="width=device-width, maximum-scale=1, initial-scale=1"/>
     <meta property="og:site_name" content="一叶知秋">
-    <meta property="og:title" content="前端面试问题总结"/>
+    <meta property="og:title" content="解决hexo引入图床，不显示图片的问题"/>
     <meta name="referrer" content="no-referrer" />
     
     <style>body:before{ content: ''; background-image: url(https://api.paugram.com/wallpaper?source=gh) }</style>
@@ -50,69 +50,50 @@
     <main>
     <div class="wrap min">
         <section class="post-title">
-            <h2>前端面试问题总结</h2>
+            <h2>解决hexo引入图床，不显示图片的问题</h2>
             <div class="post-meta">
-                <time class="date">2018.10.25</time>
+                <time class="date">2024.04.02</time>
             
             </div>
         </section>
         <article class="post-content">
         
-            <blockquote>这篇文章上次修改于 1987 天前，可能其部分内容已经发生变化，如有疑问可询问作者。</blockquote>
-        
-            <h2 id="目录">目录</h2>
-<ul>
-<li><a target="_blank" rel="noopener" href="https://github.com/flymejie/FE-Interview-Questions/blob/master/HTML.md">HTML</a></li>
-<li><a target="_blank" rel="noopener" href="https://github.com/flymejie/FE-Interview-Questions/blob/master/CSS.md">CSS</a></li>
-<li><a target="_blank" rel="noopener" href="https://github.com/flymejie/FE-Interview-Questions/blob/master/JavaScript.md">JavaScript</a></li>
-<li><a target="_blank" rel="noopener" href="https://github.com/flymejie/FE-Interview-Questions/blob/master/jQuery.md">jQuery</a></li>
-<li><a target="_blank" rel="noopener" href="https://github.com/flymejie/FE-Interview-Questions/blob/master/Ajax.md">Ajax</a></li>
-<li><a target="_blank" rel="noopener" href="https://github.com/flymejie/FE-Interview-Questions/blob/master/HTTP.md">HTTP</a></li>
-<li><a target="_blank" rel="noopener" href="https://github.com/flymejie/FE-Interview-Questions/blob/master/Front-end-frame-relative.md">Front-end-frame-relative</a></li>
-<li><a target="_blank" rel="noopener" href="https://github.com/flymejie/FE-Interview-Questions/blob/master/Json-XML.md">Json-XML</a></li>
-<li><a target="_blank" rel="noopener" href="https://github.com/flymejie/FE-Interview-Questions/blob/master/localStorage.md">localStorage</a></li>
-<li><a target="_blank" rel="noopener" href="https://github.com/flymejie/FE-Interview-Questions/blob/master/mobile-terminal.md">mobile-terminal</a></li>
-<li><a target="_blank" rel="noopener" href="https://github.com/flymejie/FE-Interview-Questions/blob/master/Modules.md">Modules</a></li>
-<li><a target="_blank" rel="noopener" href="https://github.com/flymejie/FE-Interview-Questions/blob/master/performance-optimization.md">performance-optimization</a></li>
-<li><a target="_blank" rel="noopener" href="https://github.com/flymejie/FE-Interview-Questions/blob/master/PS.md">PS</a></li>
-<li><a target="_blank" rel="noopener" href="https://github.com/flymejie/FE-Interview-Questions/blob/master/SEO.md">SEO</a></li>
-<li><a target="_blank" rel="noopener" href="https://github.com/flymejie/FE-Interview-Questions/blob/master/ES6.md">ES6</a></li>
-<li><a target="_blank" rel="noopener" href="https://github.com/flymejie/FE-Interview-Questions/blob/master/cross-domain.md">cross-domain</a></li>
-<li><a target="_blank" rel="noopener" href="https://github.com/flymejie/FE-Interview-Questions/blob/master/cookie.md">cookie</a></li>
-<li><a target="_blank" rel="noopener" href="https://github.com/flymejie/FE-Interview-Questions/blob/master/MVC.md">MVC</a></li>
-<li><a target="_blank" rel="noopener" href="https://github.com/flymejie/FE-Interview-Questions/blob/master/Git.md">Git</a></li>
-<li><a target="_blank" rel="noopener" href="https://github.com/flymejie/FE-Interview-Questions/blob/master/data-structure.md">data-structure</a></li>
-<li><a target="_blank" rel="noopener" href="https://github.com/flymejie/FE-Interview-Questions/blob/master/dataBase.md">dataBase</a></li>
-<li><a target="_blank" rel="noopener" href="https://github.com/flymejie/FE-Interview-Questions/blob/master/Handwritten-code.md">Handwritten-code</a></li>
-<li><a target="_blank" rel="noopener" href="https://github.com/flymejie/FE-Interview-Questions/blob/master/computer-basic-knowledge.md">computer-basic-knowledge</a></li>
-<li><a target="_blank" rel="noopener" href="https://github.com/flymejie/FE-Interview-Questions/blob/master/other.md">other</a></li>
-<li><a target="_blank" rel="noopener" href="https://github.com/flymejie/FE-Interview-Questions/blob/master/comprehensive.md">comprehensive</a></li>
-<li><a target="_blank" rel="noopener" href="https://github.com/flymejie/FE-Interview-Questions/blob/master/vue.md">vue</a></li>
-<li><a target="_blank" rel="noopener" href="https://github.com/flymejie/FE-Interview-Questions/blob/master/react.md">react</a></li>
-<li><a target="_blank" rel="noopener" href="https://github.com/flymejie/FE-Interview-Questions/blob/master/MVVM.md">MVVM</a></li>
-<li><a target="_blank" rel="noopener" href="https://github.com/flymejie/FE-Interview-Questions/blob/master/%E6%B5%8F%E8%A7%88%E5%99%A8.md">浏览器</a></li>
-<li><a target="_blank" rel="noopener" href="https://github.com/flymejie/FE-Interview-Questions/blob/master/%E6%80%A7%E8%83%BD.md">性能</a></li>
-</ul>
-<h2 id="综合版本"><a target="_blank" rel="noopener" href="https://github.com/flymejie/FE-Interview-Questions#%E7%BB%BC%E5%90%88%E7%89%88%E6%9C%AC"></a>综合版本</h2>
-<ul>
-<li><a target="_blank" rel="noopener" href="https://github.com/flymejie/FE-Interview-Questions/blob/master/Interview-Questions/Front-end-Developer-Questions%5Bquestion-version%5D.md">Interview-Questions</a></li>
-<li>[Front-end-Developer-Questions<a target="_blank" rel="noopener" href="https://github.com/flymejie/FE-Interview-Questions/blob/master/Interview-Questions/Front-end-Developer-Questions%5Bquestion-and-answer-version%5D.md">question-and-answer-versio]</a></li>
-</ul>
+            <h3 id="1-问题描述">1.问题描述</h3>
+<p>Hexo文章中采用图床方式加载的图片无法成功加载。</p>
+<h3 id="2-问题原因">2.问题原因</h3>
+<p>####2.1Referer含义</p>
+<p>HTTP协议在请求(request)的头信息里面， 设计了一个<strong>Referer</strong>字段，提供访问来源的信息。这个字段是可选的，客户端发送请求的时候，可以自主决定是否加上该字段。</p>
+<h4 id="2-2Referer的常见作用">2.2Referer的常见作用</h4>
+<p>(1)用户行为日志记录访问来源；</p>
+<p>(2)防盗链。部分网站不允许图片外链，只允许本网站才能显示图片，外部网站加载图片就会报错。通过对请求方的<strong>Referer</strong>进行判断过滤，确认是否可以访问。</p>
+<h4 id="2-3Referrer-Policy的设置方法">2.3Referrer Policy的设置方法</h4>
+<p>引用策略(Referrer Policy)就是文档发出请求时，是否在请求头部定义 <strong>Referrer</strong> 的设置。一般浏览器的默认值是：==no-referrer-when-downgrade==。</p>
+<p>(1)HTTP头部信息：服务器发送网页的时候，通过HTTP响应头中的 Referrer-Policy 字段告诉浏览器。</p>
+<pre class="line-numbers language-none"><code class="language-none">Content-Security-Policy: referrer | no-referrer | no-referrer-when-downgrade | origin | orign-when-cross-orign | unsafe-url;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>(2)**<meta>**标签：使用<meta>标签，在网页头部设置</p>
+<pre class="line-numbers language-markup" data-language="markup"><code class="language-markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>referrer<span class="token punctuation">"</span></span> <span class="token attr-name">content</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>no-referrer | no-referrer-when-downgrade | origin | orign-when-cross-orign | unsafe-url<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>(3)referrerplicy属性： <a>、<area>、<img>、<iframe>和<link>标签，可以设置referrerpolicy属性。</p>
+<pre class="line-numbers language-markup" data-language="markup"><code class="language-markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span><span class="token punctuation">"</span></span> <span class="token attr-name">referrerpolicy</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>orign<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h3 id="3-解决办法">3.解决办法</h3>
+<p>【Hingle主题】主题文件夹内的(themes\hingle\layout_partial) <strong>head.ejs</strong>文件中，添加meta信息</p>
+<pre class="line-numbers language-markup" data-language="markup"><code class="language-markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>referrer<span class="token punctuation">"</span></span> <span class="token attr-name">content</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>no-referrer<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h3 id="4-重新生成hexo">4.重新生成hexo</h3>
+<pre class="line-numbers language-none"><code class="language-none">hexo g<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
         </article>
         <section class="post-near">
             <ul>
                 
-                    <li>上一篇: <a href="/2018/10/30/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/">微信小程序入门笔记</a></li>
+                    <li>上一篇: <a href="/2024/04/02/PicGo%EF%BC%88%E5%9B%BE%E5%BA%8A%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95%EF%BC%89/">PicGo（图床使用方法）</a></li>
                 
                 
-                    <li>下一篇: <a href="/2018/03/20/webpack%E7%AC%94%E8%AE%B0/">webpack笔记</a></li>
+                    <li>下一篇: <a href="/2024/04/02/%E8%AE%B0%E5%BD%95app%E4%B8%8A%E6%9E%B6APP%20Store%E5%85%A8%E6%B5%81%E7%A8%8B/">记录app上架APP Store全流程</a></li>
                 
             </ul>
         </section>
         
             <section class="post-tags">
-            <a class="-none-link" href="/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/" rel="tag">面试题</a>
+            <a class="-none-link" href="/tags/hexo/" rel="tag">hexo</a>
             </section>
         
     

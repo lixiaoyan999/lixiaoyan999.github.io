@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html>
+  <head>
+     
+    <meta charset="UTF-8">
+    <title>git相关 - 一叶知秋</title>
+    <link rel="shortcut icon" href="/static/img/icon.png">
+    <link rel="icon" href="/static/img/icon.png" sizes="192x192"/>
+    
+<link rel="stylesheet" href="/static/kico.css">
+<link rel="stylesheet" href="/static/hingle.css">
+
+    
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <meta name="viewport" content="width=device-width, maximum-scale=1, initial-scale=1"/>
+    <meta property="og:site_name" content="一叶知秋">
+    <meta property="og:title" content="git相关"/>
+    <meta name="referrer" content="no-referrer" />
+    
+    <style>body:before{ content: ''; background-image: url(https://api.paugram.com/wallpaper?source=gh) }</style>
+    
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+  <body>
+    <header>
+    <div class="head-title">
+        <h4>一叶知秋</h4>
+    </div>
+    <div class="head-action">
+        <div class="toggle-btn"></div>
+        <div class="light-btn"></div>
+        <div class="search-btn"></div>
+    </div>
+    <form class="head-search" method="post">
+        <input type="text" name="s" placeholder="搜索什么？">
+    </form>
+    <nav class="head-menu">
+        <a href="/">首页</a>
+        <div class="has-child">
+            <a>分类</a>
+            <div class="sub-menu">
+                
+            </div>
+        </div>
+        
+    </nav>
+</header>
+
+    <main>
+    <div class="wrap min">
+        <section class="post-title">
+            <h2>git相关</h2>
+            <div class="post-meta">
+                <time class="date">2024.04.02</time>
+            
+            </div>
+        </section>
+        <article class="post-content">
+        
+            <h3 id="git常用命令"><strong>git常用命令</strong></h3>
+<pre class="line-numbers language-none"><code class="language-none">git init						-- 初始化git生成git仓库
+git status						-- 查看git状态	
+git add							-- 添加文件到暂存区
+git commit						-- 提交变更文件到本地仓库
+git pull						-- 将远程主机的最新内容拉到本地
+								   pull会把所有的提交自动合并到当前分支
+git fetch						-- 从远程获取最新版本到本地，不会自动merge。
+								   fetch只是把拉取的提交存储到本地仓库，真正合并到主分支中需要使用merge
+git merge						-- 合并分支
+git push						-- 提交到远程
+git stash						--  将一个修改后的工作区中的改动保存起来，将工作区恢复到改动前的状态。
+git log							-- 查看提交记录日志
+git branch						-- 查看所有分支
+git reflog						-- 查看所有的操作记录
+git rebase						-- 重新排列base，base指commit
+git remote						-- 创建、查看和删除本地仓库与其他代码仓库之间的连接
+git clone						-- 初始拉取项目
+git cherry-pick					 -- 将指定的提交（commit）应用于其他分支。
+git reset &lt;filename&gt;			 	 		-- 重置到某个commit的状态
+	--hard ：不保存所有变更
+	--soft：保留变更且变更内容处于Staged
+	--mixed	：保留变更且变更内容处于Modified
+git checkout &lt;name&gt; &lt;template&gt;			-- 创建新分支
+	&lt;name&gt;：新分支的名字
+	&lt;template&gt;：指以哪个分支或者commit 为模板 
+git checkout &lt;branchname&gt;          			-- 切换到指定分支
+git checkout -b &lt;name&gt; &lt;template&gt;		    -- 切换指定分支（进入自己的分支）master(主干)
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="常用提交步骤">常用提交步骤</h3>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript">git stash						    <span class="token operator">--</span> 查看git状态
+git add <span class="token operator">&lt;</span>filename<span class="token operator">></span>				 	<span class="token operator">--</span> 添加文件到暂存区
+git add <span class="token punctuation">.</span>						    <span class="token operator">--</span> 加入所有文件到暂存区
+git commite <span class="token operator">-</span>m <span class="token string">'message'</span>		 	 <span class="token operator">--</span> 提交变更文件到本地仓库
+git pull                              <span class="token operator">--</span> 拉取远程分支项目
+git push                              <span class="token operator">--</span> 提交到远程自己分支 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="git本地创建分支提交至github">git本地创建分支提交至github</h3>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript">#	未确定好，复习完学习视频后重新编辑。
+
+git fetch								 <span class="token operator">--</span> 查看远程仓库分支信息
+git branch								 <span class="token operator">--</span> 查看本地分支
+git branch 分支名称                          <span class="token operator">--</span> 创建本地分支        		 
+git checkout <span class="token operator">&lt;</span>branchname<span class="token operator">></span>          			<span class="token operator">--</span> 切换到指定分支
+git merge 来源分支							<span class="token operator">--</span> 合并分支
+git push <span class="token operator">--</span>set<span class="token operator">-</span>upstream origin bc<span class="token operator">-</span>a			 <span class="token operator">--</span> 设置上流分支
+	<span class="token operator">--</span>set<span class="token operator">-</span>upstream是指设置上流分支<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="文件状态">文件状态</h3>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token number">1.</span>没有被add过的文件叫untracked
+<span class="token number">2</span><span class="token punctuation">.</span>add之后文件处于staged状态等待commite
+<span class="token number">3</span><span class="token punctuation">.</span>commit之后文件处于unmodified这里之所以是modified是因为文件会跟仓库中的文件对比
+<span class="token number">4.</span>当unmodified的文件被修改则会变为modified状态
+<span class="token number">5</span><span class="token punctuation">.</span>modified之后的文件add之后将继续变为staged状态
+<span class="token number">6</span><span class="token punctuation">.</span>unmodifed的文件还有一种可能是已经不再需要了，那么可以remove它不再追踪变为untracked状态
+
+
+<span class="token number">1</span><span class="token punctuation">.</span>Untracked<span class="token operator">:</span>新建文件
+<span class="token number">2</span><span class="token punctuation">.</span>Unmodified：
+<span class="token number">3</span><span class="token punctuation">.</span>Modified：
+<span class="token number">4</span><span class="token punctuation">.</span>Staged：git add之后，文件状态为Staged<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<hr>
+<h3 id="一些解决方法">一些解决方法</h3>
+<h4 id="git撤销">git撤销</h4>
+<p>1.执行了 git add . 后发现文件错误，使用git restore --staged 撤销暂缓区的提交的文件</p>
+<pre class="line-numbers language-none"><code class="language-none">命令：git restore --staged <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>2.本地修改了 但是改错了 或者 不想要本地的修改</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript">命令：git checkout <span class="token punctuation">.</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h4 id="git回退版本">git回退版本</h4>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token number">1.</span>查看版本所有提交的版本号：git log
+<span class="token number">2.</span>如果自己本地有修改的内容还没有提交 需要先备份
+<span class="token number">3.</span><span class="token function">确定回退到指定版本号：</span>
+	<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>git reset <span class="token operator">&lt;</span>filename<span class="token operator">></span> <span class="token operator">--</span><span class="token function">hard</span>
+	<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span>回退到上一个版本  <span class="token operator">^</span> 的数量代表回退第几个版本 <span class="token punctuation">,</span> 一个<span class="token operator">^</span> 代表回退上一个版本<span class="token punctuation">,</span>
+       两个<span class="token operator">^</span> 代表回退上一个的上一个版本：git reset <span class="token operator">--</span>hard <span class="token constant">HEAD</span><span class="token operator">^</span>
+	<span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span>回退到第上<span class="token number">100</span>版本：git reset <span class="token operator">--</span>hard <span class="token constant">HEAD</span><span class="token operator">~</span><span class="token number">100</span>
+<span class="token number">3.</span>强制将本地代码同步到远程仓库：git push origin master <span class="token operator">--</span>force，master主分支   ###此方式不建议<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="多人修改同一分支导致报错">多人修改同一分支导致报错</h4>
+<blockquote>
+<p>在本地修改了a文件，然后我们pull 或者push ，如果远程分支下a文件也有修改，这个时候就会 出现冲突</p>
+</blockquote>
+<ol>
+<li>
+<p>如果本地修改的少或者无关紧要的话 可以放弃本地修改 git checkout . 然后git pull</p>
+</li>
+<li>
+<p>git pull 更新代码出现冲突的解决方法</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token number">1.</span>将没有commit的代码修改放在堆栈中：git stash 
+<span class="token number">2.</span>拉取远程分支（此时本地分支会回滚到上次commit的情况，你的改动都存在stash中）：git pull  
+<span class="token number">3.</span>将stash中改动重新加回本地分支：git stash pop 
+<span class="token number">4.</span>如果改好了：git add <span class="token punctuation">.</span> <span class="token operator">-</span><span class="token operator">></span> git commit <span class="token operator">-</span>m <span class="token string">'message'</span> <span class="token operator">-</span><span class="token operator">></span> git pull <span class="token operator">-</span><span class="token operator">></span> git push<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li>
+<p>在 git pull 更新代码的时候出现冲突</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript">git add <span class="token punctuation">.</span>
+	↓
+git commit <span class="token operator">-</span>m <span class="token string">'message'</span>
+	↓
+在pull的时候出现冲突
+	↓
+git pull
+	↓
+这个时候需要解决本地的冲突再一次的提交
+	↓
+git add <span class="token punctuation">.</span>
+	↓
+git commit <span class="token operator">-</span>m <span class="token string">'message'</span>
+	↓
+git pull
+	↓
+git push<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li>
+<p>在git pull --rebase 或者 git rebase 分支名 之后如果有合并冲突 使用一下方法解决</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token number">1</span><span class="token punctuation">.</span>git rebase <span class="token operator">--</span>abort 放弃合并， 回到rebase操作之前，如果时git pull <span class="token operator">--</span>rebase  就会恢复到pull之前 ，如果时 	 git rebase 分支名 就会 恢复到合并之前
+<span class="token number">2</span><span class="token punctuation">.</span>git rebase <span class="token operator">--</span>skip 会将冲突 commit 丢弃（警告 尽量不要使用）
+<span class="token number">3</span><span class="token punctuation">.</span>git rebase <span class="token operator">--</span><span class="token keyword">continue</span>  相当于 git commit <span class="token operator">-</span>m <span class="token string">'注释'</span>；
+<span class="token number">4</span><span class="token punctuation">.</span>git push<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+</ol>
+<h4 id="git-commit-m-‘message’-报错">git commit -m ‘message’ 报错</h4>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript">方法一：跳过验证：
+	git commit <span class="token operator">-</span>m <span class="token string">"message"</span> <span class="token operator">--</span>no<span class="token operator">-</span>verify
+方法二：删除验证规则 不建议这么做。
+	删除<span class="token punctuation">.</span>git的提交规则文件<span class="token operator">:</span> rm <span class="token operator">-</span>rf <span class="token punctuation">.</span><span class="token operator">/</span>git<span class="token operator">/</span>hooks<span class="token operator">/</span>pre<span class="token operator">-</span>commit
+方法三：根据规则把代码改好在提交
+
+<span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">-</span>
+    
+下面了解一下pre<span class="token operator">-</span>commit
+pre<span class="token operator">-</span>commit 是验证代码使用的钩子
+在pre<span class="token operator">-</span>commit 中加一些规则可以在 git commit <span class="token operator">-</span>m ‘ 注释’ 提交之前验证 （如果验证不通过阻止提交）<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+        </article>
+        <section class="post-near">
+            <ul>
+                
+                    <li>上一篇: <a href="/2024/04/02/%E7%94%9F%E6%88%90%E5%AE%89%E5%8D%93%E7%AD%BE%E5%90%8D/">生成安卓签名</a></li>
+                
+                
+                    <li>下一篇: <a href="/2018/10/30/vue%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%A2%98/">vue前端面试题</a></li>
+                
+            </ul>
+        </section>
+        
+            <section class="post-tags">
+            <a class="-none-link" href="/tags/GIT/" rel="tag">GIT</a>
+            </section>
+        
+    
+        <section class="post-author">
+        
+            <figure class="author-avatar">
+                <img src="https://gitee.com/lxywzh/blogs-img/raw/master/tx-3.jpg" alt="XXXXY" />
+            </figure>
+        
+            <div class="author-info">
+                <h4>XXXXY</h4>
+                <p>走在前端路程上的小坎坷</p>
+            </div>
+        </section>
+    
+    </div>
+</main>
+
+    <footer>
+    <div class="buttons">
+        <a class="to-top" href="#"></a>
+    </div>
+    <div class="wrap min">
+        <section class="widget">
+            <div class="row">
+                <div class="col-m-4">
+                    <h3 class="title-recent">最新文章：</h3>
+                    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2024/04/02/OS_CSR(CertificateSigningRequest)%E6%96%87%E4%BB%B6%E8%8E%B7%E5%8F%96/">IOS_CSR(CertificateSigningRequest)文件获取</a></li><li class="post-list-item"><a class="post-list-link" href="/2024/04/02/%E5%85%B3%E4%BA%8Enpm%20%E5%AE%89%E8%A3%85%E4%BE%9D%E8%B5%96%20%E5%92%8C%20dependencies%20%E5%92%8C%20devdependencies%20%E7%9A%84%E4%BD%BF%E7%94%A8%20%E5%92%8C%20%E6%8F%8F%E8%BF%B0/">关于npm 安装依赖 和 dependencies 和 devdependencies 的使用 和 描述</a></li><li class="post-list-item"><a class="post-list-link" href="/2024/04/02/PicGo%EF%BC%88%E5%9B%BE%E5%BA%8A%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95%EF%BC%89/">PicGo（图床使用方法）</a></li><li class="post-list-item"><a class="post-list-link" href="/2024/04/02/%E8%A7%A3%E5%86%B3hexo%E5%BC%95%E5%85%A5%E5%9B%BE%E5%BA%8A%EF%BC%8C%E6%89%8B%E6%9C%BA%E5%92%8Cweb%E4%B8%8D%E6%98%BE%E7%A4%BA%E5%9B%BE%E7%89%87%E7%9A%84%E9%97%AE%E9%A2%98/">解决hexo引入图床，不显示图片的问题</a></li><li class="post-list-item"><a class="post-list-link" href="/2024/04/02/%E8%AE%B0%E5%BD%95app%E4%B8%8A%E6%9E%B6APP%20Store%E5%85%A8%E6%B5%81%E7%A8%8B/">记录app上架APP Store全流程</a></li><li class="post-list-item"><a class="post-list-link" href="/2024/04/02/TYPORA%E4%B8%AD%E6%96%87%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/">TYPORA中文快速上手使用教程</a></li></ul>
+                </div>
+                <div class="col-m-4">
+                    <h3 class="title-date">时光机：</h3>
+                    <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/04/">四月 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">十月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">三月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">八月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">四月 2016</a></li></ul>
+                </div>
+                <div class="col-m-4">
+                    <h3 class="title-tags">标签云：</h3>
+                    <a href="/tags/App-Store/" style="font-size: 10px;">App Store</a> <a href="/tags/GIT/" style="font-size: 10px;">GIT</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/NPM/" style="font-size: 10px;">NPM</a> <a href="/tags/PS/" style="font-size: 10px;">PS</a> <a href="/tags/PicGo-Typora-gitee/" style="font-size: 10px;">PicGo + Typora + gitee</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/html/" style="font-size: 10px;">html</a> <a href="/tags/typora/" style="font-size: 10px;">typora</a> <a href="/tags/vue/" style="font-size: 10px;">vue</a> <a href="/tags/webpack/" style="font-size: 10px;">webpack</a> <a href="/tags/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/" style="font-size: 10px;">微信小程序</a> <a href="/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/" style="font-size: 10px;">面试题</a>
+                </div>
+            </div>
+        </section>
+        <section class="sub-footer">
+            <p>© 2024 <a href="/">一叶知秋</a>. All Rights Reserved. Theme By <a href="https://github.com/Dreamer-Paul/Hingle" target="_blank" rel="nofollow">Hingle</a>.</p>
+        </section>
+    </div>
+</footer>
+
+
+<script src="/static/kico.js"></script>
+<script src="/static/hingle.js"></script>
+
+
+<script>var hingle = new Paul_Hingle({"copyright":true,"night":true});</script>
+
+  </body>
+</html>
