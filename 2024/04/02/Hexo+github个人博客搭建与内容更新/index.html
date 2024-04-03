@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html>
+  <head>
+     
+    <meta charset="UTF-8">
+    <title>Hexo+github个人博客搭建与内容更新 - 一叶知秋</title>
+    <link rel="shortcut icon" href="/static/img/icon.png">
+    <link rel="icon" href="/static/img/icon.png" sizes="192x192"/>
+    
+<link rel="stylesheet" href="/static/kico.css">
+<link rel="stylesheet" href="/static/hingle.css">
+
+    
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <meta name="viewport" content="width=device-width, maximum-scale=1, initial-scale=1"/>
+    <meta property="og:site_name" content="一叶知秋">
+    <meta property="og:title" content="Hexo+github个人博客搭建与内容更新"/>
+    <meta name="referrer" content="no-referrer" />
+    
+    <style>body:before{ content: ''; background-image: url(https://api.paugram.com/wallpaper?source=gh) }</style>
+    
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+  <body>
+    <header>
+    <div class="head-title">
+        <h4>一叶知秋</h4>
+    </div>
+    <div class="head-action">
+        <div class="toggle-btn"></div>
+        <div class="light-btn"></div>
+        <div class="search-btn"></div>
+    </div>
+    <form class="head-search" method="post">
+        <input type="text" name="s" placeholder="搜索什么？">
+    </form>
+    <nav class="head-menu">
+        <a href="/">首页</a>
+        <div class="has-child">
+            <a>分类</a>
+            <div class="sub-menu">
+                
+            </div>
+        </div>
+        
+    </nav>
+</header>
+
+    <main>
+    <div class="wrap min">
+        <section class="post-title">
+            <h2>Hexo+github个人博客搭建与内容更新</h2>
+            <div class="post-meta">
+                <time class="date">2024.04.02</time>
+            
+            </div>
+        </section>
+        <article class="post-content">
+        
+            <blockquote>
+<p><a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/">hexo官方文档</a></p>
+</blockquote>
+<p>##1.安装</p>
+<blockquote>
+<p>安装前提：</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://nodejs.org/en">Node.js</a> (Node.js 版本需不低于 10.13，建议使用 Node.js 12.0 及以上版本)</li>
+<li><a target="_blank" rel="noopener" href="https://git-scm.com/">git</a></li>
+</ul>
+<p>如果电脑已安装上述必备程序，可以直接前往安装hexo步骤。</p>
+<p>如果您的电脑中尚未安装所需的程序，请先完成安装。</p>
+</blockquote>
+<p>(1) 安装之前，先在 <a target="_blank" rel="noopener" href="https://github.com/">GitHub</a> 上建立一个仓库，如下图。</p>
+<blockquote>
+<p>Tips：githun仓库权限必须设置为公开。</p>
+</blockquote>
+<img src="https://gitee.com/lxywzh/blogs-img/raw/master/image-20240403114248941.png" alt="image-20240403114248941" style="zoom: 50%;" />
+<p><img src="https://gitee.com/lxywzh/blogs-img/raw/master/image-20240403114356475.png" alt="image-20240403114356475"></p>
+<p>(2) 接下来就是安装Hexo</p>
+<p>首先在本地建立一个文件夹 blogs，点开 blog 文件夹，鼠标右键打开 【Git Bush Here】，输入npm命令安装Hexo：</p>
+<pre class="line-numbers language-none"><code class="language-none">npm install -g hexo-cli
+hexo version    # hexo版本号，查看是否安装成功<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>##2.建站</p>
+<p>安装 Hexo 完成后，请执行下列命令，Hexo 将会在指定文件夹中新建所需要的文件，指定的文件夹一定是空文件夹，否则会报错。</p>
+<pre class="line-numbers language-none"><code class="language-none">$ hexo init &lt;folder&gt;
+$ cd &lt;folder&gt;
+$ npm install<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p>执行完成命令后，在文件夹内生成的目录如下。（具体说明查看<a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/setup">官方文档</a>.）</p>
+<pre class="line-numbers language-none"><code class="language-none">.
+├── _config.yml
+├── package.json
+├── scaffolds
+├── source
+|   ├── _drafts
+|   └── _posts
+└── themes<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>##3.配置</p>
+<p>博客的网站标题、网站副标题、名字、网站使用的语言以及网站时区都可以在 <strong>_config.yml</strong> 进行配置。查看<a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/configuration">官方文档</a>，了解具体说明。</p>
+<pre class="line-numbers language-none"><code class="language-none">title: Debug World
+subtitle: 世界很大，我想盘它
+description: 
+keywords: 
+author: 
+language: zh-CN
+timezone: <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>##4.生成</p>
+<pre class="line-numbers language-none"><code class="language-none">hexo generate    # 把源文件生成静态文件。等同 hexo g
+hexo server      # 启动本地服务器。等同 hexo s<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>用浏览器打开 <a target="_blank" rel="noopener" href="https://links.jianshu.com/go?to=http%3A%2F%2Flocalhost%3A4000%2F">http://localhost:4000/</a> 出现Hexo默认博文，就说明成功了。</p>
+<p><img src="https://gitee.com/lxywzh/blogs-img/raw/master/6064385-f805f7bbc758d2b8.png" alt="img"></p>
+<p>##5.部署</p>
+<p>(1)打开 <strong>_config_yml</strong> 文件夹，下滑底部找到 deploy，进行修改</p>
+<pre class="line-numbers language-none"><code class="language-none">deploy:
+ type: git
+ repo: https:&#x2F;&#x2F;github.com&#x2F;lixiaoyan999&#x2F;lixiaoyan999.github.io.git			#git仓库地址
+ branch: master<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<img src="https://gitee.com/lxywzh/blogs-img/raw/master/image-20240403144947368.png" alt="image-20240403144947368" style="zoom:50%;" />
+<p>(2)安装Git部署插件，命令</p>
+<pre class="line-numbers language-none"><code class="language-none">npm install hexo-deployer-git --save<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>(3)把静态网页推送到github</p>
+<pre class="line-numbers language-none"><code class="language-none">hexo clean   #清除缓存文件 db.json 和已生成的静态文件 public
+hexo g       #生成网站静态文件到默认设置的 public 文件夹(hexo generate 的缩写)
+hexo d       #自动生成网站静态文件，并部署到设定的仓库(hexo deploy 的缩写)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p>(4)完成之后，打开浏览器，输入 <a target="_blank" rel="noopener" href="http://xxx.github.io">http://xxx.github.io</a> 就可以打开你的网页。</p>
+<p>##6.更改主题</p>
+<p>这里使用的是 <a target="_blank" rel="noopener" href="https://docs.paul.ren/hingle/">Hingle 主题</a>。</p>
+<img src="https://gitee.com/lxywzh/blogs-img/raw/master/image-20240403151245418.png" alt="image-20240403151245418" style="zoom: 50%;" />
+<p>(1)打开blogs文件夹,输入代码后自动下载主题至blogs/themes中。</p>
+<pre class="line-numbers language-none"><code class="language-none">git bash:
+git clone https:&#x2F;&#x2F;github.com&#x2F;Dreamer-Paul&#x2F;Hingle.git<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<img src="https://gitee.com/lxywzh/blogs-img/raw/master/image-20240403152028677.png" alt="image-20240403152028677" style="zoom: 80%;" />
+<p>(2)配置站点文件(themes/hingle/_config.yml)，修改主题（注意冒号之后都要有空格）。</p>
+<pre class="line-numbers language-none"><code class="language-none">author: &#39;Paul&#39; # 作者名称
+author_avatar: &#39;https:&#x2F;&#x2F;sdn.geekzu.org&#x2F;avatar&#x2F;d22eb460ecab37fcd7205e6a3c55c228?s&#x3D;200&amp;r&#x3D;X&amp;d&#x3D;&#39; # 作者头像
+author_text: &#39;特立独行的一只前端菜狗。本站未注明转载的文章均为原创，并采用 &lt;a href&#x3D;&quot;https:&#x2F;&#x2F;creativecommons.org&#x2F;licenses&#x2F;by-nc-sa&#x2F;4.0&#x2F;deed.zh&quot; target&#x3D;&quot;_blank&quot; rel&#x3D;&quot;nofollow&quot;&gt;CC BY-NC-SA 4.0&lt;&#x2F;a&gt; 授权协议，&lt;span style&#x3D;&quot;color: #E91E63&quot;&gt;转载请注明来源&lt;&#x2F;span&gt;，谢谢！如本站内容对你有所帮助的话，不妨 &lt;a href&#x3D;&quot;https:&#x2F;&#x2F;paul.ren&#x2F;donate&quot;&gt;捐助支持&lt;&#x2F;a&gt; 一下？同时欢迎订阅关注 &lt;a href&#x3D;&quot;https:&#x2F;&#x2F;paul.ren&#x2F;note&quot; target&#x3D;&quot;_blank&quot;&gt;我的日记&lt;&#x2F;a&gt;，唠嗑（分享）每日的折腾经历。&#39; # 作者信息
+social: # 社交链接
+  - title: &#39;微博&#39;
+    icon: &#39;weibo&#39;
+    link: &#39;http:&#x2F;&#x2F;weibo.com&#x2F;234891753&#39;
+  - title: &#39;Github&#39;
+    icon: &#39;github&#39;
+    link: &#39;https:&#x2F;&#x2F;github.com&#x2F;Dreamer-Paul&#39;
+  - title: &#39;首页&#39;
+    icon: &#39;home&#39;
+    link: &#39;https:&#x2F;&#x2F;paul.ren&#39;
+background: &#39;https:&#x2F;&#x2F;api.paugram.com&#x2F;wallpaper?source&#x3D;gh&#39; # 主题背景
+menu: # 页眉菜单项目
+  &#39;关于我&#39;: &#x2F;about
+  &#39;朋友们&#39;: &#x2F;friends
+config:
+  copyright: true # 复制的时候弹出保留原站链接说明
+  night: true # 自动切换夜间模式
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>(3) 启用主题。打开<code>根_config.yml</code>配置文件，找到theme字段，将其值改为<code>hingle</code>(先确认主题文件夹名称是否为hingle)。</p>
+<pre class="line-numbers language-none"><code class="language-none">根_config.yml_config.yml
+theme: hingle<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<h2 id="7-内容更新于维护">7.内容更新于维护</h2>
+<p>通过 <a target="_blank" rel="noopener" href="https://typora.ymzhxing.cn/index.html">typora</a>撰写编辑文档来进行内容的更新，通过git进行远程的拉取和维护。</p>
+<p>###7.1新建博文</p>
+<p>(1)执行命令创建新文章或新的页面。新建完成后source/_posts目录中会生成一个文件 “<a target="_blank" rel="noopener" href="http://title.md">title.md</a>”，即新建的博文。</p>
+<pre class="line-numbers language-none"><code class="language-none">hexo new &quot;title&quot;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>(2)直接进入source/_posts，鼠标右键选择新建文件，重命名博文。</p>
+<p><img src="https://gitee.com/lxywzh/blogs-img/raw/master/image-20240403162328272.png" alt="image-20240403162328272"></p>
+<h3 id="7-2更新于发布博文">7.2更新于发布博文</h3>
+<p>执行下面几条命令，将博客部署到 GitHub 上：</p>
+<pre class="line-numbers language-none"><code class="language-none">hexo clean &#x3D;&#x3D;  hexo c   # 清除缓存  
+hexo generate &#x3D;&#x3D; hexo g  # 生成静态文件
+hexo deploy &#x3D;&#x3D; hexo d    # 部署到github中，更新网页端的内容<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p>组合命令</p>
+<pre class="line-numbers language-none"><code class="language-none">hexo d -g<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<blockquote>
+<p>tips:</p>
+<ol>
+<li>已发布的文章发生修改， 本地可直接预览，即 不执行上述3个命令,刷新浏览器即可;</li>
+<li>远程部署必须要执行上述命令</li>
+<li>修改内容一旦预览与修改不一致，则需要clean</li>
+</ol>
+</blockquote>
+
+        </article>
+        <section class="post-near">
+            <ul>
+                
+                    <li>上一篇: <a href="/2024/04/02/%E7%94%9F%E6%88%90%E5%AE%89%E5%8D%93%E7%AD%BE%E5%90%8D/">生成安卓签名</a></li>
+                
+                
+                    <li>下一篇: <a href="/2018/10/30/vue%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%A2%98/">vue前端面试题</a></li>
+                
+            </ul>
+        </section>
+        
+            <section class="post-tags">
+            <a class="-none-link" href="/tags/Hexo/" rel="tag">Hexo</a>
+            </section>
+        
+    
+        <section class="post-author">
+        
+            <figure class="author-avatar">
+                <img src="https://gitee.com/lxywzh/blogs-img/raw/master/tx-3.jpg" alt="XXXXY" />
+            </figure>
+        
+            <div class="author-info">
+                <h4>XXXXY</h4>
+                <p>走在前端路程上的小坎坷</p>
+            </div>
+        </section>
+    
+    </div>
+</main>
+
+    <footer>
+    <div class="buttons">
+        <a class="to-top" href="#"></a>
+    </div>
+    <div class="wrap min">
+        <section class="widget">
+            <div class="row">
+                <div class="col-m-4">
+                    <h3 class="title-recent">最新文章：</h3>
+                    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2024/04/02/OS_CSR(CertificateSigningRequest)%E6%96%87%E4%BB%B6%E8%8E%B7%E5%8F%96/">IOS_CSR(CertificateSigningRequest)文件获取</a></li><li class="post-list-item"><a class="post-list-link" href="/2024/04/02/PicGo%EF%BC%88%E5%9B%BE%E5%BA%8A%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95%EF%BC%89/">PicGo（图床使用方法）</a></li><li class="post-list-item"><a class="post-list-link" href="/2024/04/02/%E5%85%B3%E4%BA%8Enpm%20%E5%AE%89%E8%A3%85%E4%BE%9D%E8%B5%96%20%E5%92%8C%20dependencies%20%E5%92%8C%20devdependencies%20%E7%9A%84%E4%BD%BF%E7%94%A8%20%E5%92%8C%20%E6%8F%8F%E8%BF%B0/">关于npm 安装依赖 和 dependencies 和 devdependencies 的使用 和 描述</a></li><li class="post-list-item"><a class="post-list-link" href="/2024/04/02/%E8%A7%A3%E5%86%B3hexo%E5%BC%95%E5%85%A5%E5%9B%BE%E5%BA%8A%EF%BC%8C%E6%89%8B%E6%9C%BA%E5%92%8Cweb%E4%B8%8D%E6%98%BE%E7%A4%BA%E5%9B%BE%E7%89%87%E7%9A%84%E9%97%AE%E9%A2%98/">解决hexo引入图床，不显示图片的问题</a></li><li class="post-list-item"><a class="post-list-link" href="/2024/04/02/%E8%AE%B0%E5%BD%95app%E4%B8%8A%E6%9E%B6APP%20Store%E5%85%A8%E6%B5%81%E7%A8%8B/">记录app上架APP Store全流程</a></li><li class="post-list-item"><a class="post-list-link" href="/2024/04/02/TYPORA%E4%B8%AD%E6%96%87%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/">TYPORA中文快速上手使用教程</a></li></ul>
+                </div>
+                <div class="col-m-4">
+                    <h3 class="title-date">时光机：</h3>
+                    <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/04/">四月 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">十月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">三月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">八月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">四月 2016</a></li></ul>
+                </div>
+                <div class="col-m-4">
+                    <h3 class="title-tags">标签云：</h3>
+                    <a href="/tags/App-Store/" style="font-size: 10px;">App Store</a> <a href="/tags/GIT/" style="font-size: 10px;">GIT</a> <a href="/tags/Hexo/" style="font-size: 20px;">Hexo</a> <a href="/tags/NPM/" style="font-size: 10px;">NPM</a> <a href="/tags/PS/" style="font-size: 10px;">PS</a> <a href="/tags/PicGo-Typora-gitee/" style="font-size: 10px;">PicGo + Typora + gitee</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/html/" style="font-size: 10px;">html</a> <a href="/tags/typora/" style="font-size: 10px;">typora</a> <a href="/tags/vue/" style="font-size: 10px;">vue</a> <a href="/tags/webpack/" style="font-size: 10px;">webpack</a> <a href="/tags/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/" style="font-size: 10px;">微信小程序</a> <a href="/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/" style="font-size: 10px;">面试题</a>
+                </div>
+            </div>
+        </section>
+        <section class="sub-footer">
+            <p>© 2024 <a href="/">一叶知秋</a>. All Rights Reserved. Theme By <a href="https://github.com/Dreamer-Paul/Hingle" target="_blank" rel="nofollow">Hingle</a>.</p>
+        </section>
+    </div>
+</footer>
+
+
+<script src="/static/kico.js"></script>
+<script src="/static/hingle.js"></script>
+
+
+<script>var hingle = new Paul_Hingle({"copyright":true,"night":true});</script>
+
+  </body>
+</html>
