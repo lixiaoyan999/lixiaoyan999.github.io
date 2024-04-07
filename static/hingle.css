@@ -975,3 +975,24 @@ pre[class*="language-"].line-numbers {
     padding-right: 0.8em;
     text-align: right;
 }
+
+/* search */
+#local-search-result {
+    width: 100%;
+    background: #fafafa;
+    border-top: 1px solid #ddd;
+    box-shadow: 0 0 1em 0.1em rgba(0, 0, 0, .08);
+    position: fixed;
+    z-index: 99;
+}
+
+.search-result-list {
+    max-width: 50em;
+    margin:  0 auto;
+    padding: 1em 1.25em;
+    box-sizing: content-box;
+}
+
+.search-result-list li:first-child {
+    margin-top: 1em;
+}
