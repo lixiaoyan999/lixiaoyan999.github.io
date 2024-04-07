@@ -170,8 +170,9 @@ var Paul_Hingle = function (config) {
 
         form.onsubmit = function (ev) {
             ev.preventDefault();
+             /*window.open("https://www.baidu.com/s?wd=site:" + location.host + " " + input.value.trim());*/
+            searchFunc("search.xml", 'local-search-input', 'local-search-result');
 
-            window.open("https://www.baidu.com/s?wd=site:" + location.host + " " + input.value.trim());
         }        
     }
 
