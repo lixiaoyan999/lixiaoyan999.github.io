@@ -55,8 +55,10 @@
     <nav class="head-menu">
         <a href="/">首页</a>
         <div class="has-child">
-            <a>分类</a>
-            <div class="sub-menu"></div>
+            <a >分类</a>
+            <div class="sub-menu">
+                <a class="category-link" href="/categories/share/">工具分享</a><a class="category-link" href="/categories/coding/">技术分享</a>
+            </div>
         </div>
         
     </nav>
@@ -73,6 +75,11 @@
             <div class="post-meta">
                 <time class="date">2024.04.02</time>
             
+                <span class="category"><a class="category-link" href="/categories/coding/">技术分享</a></span>
+            
+            
+                <span class="tags"><a class="-none-link" href="/tags/APP-Store/" rel="tag">APP Store</a>，<a class="-none-link" href="/tags/uniApp/" rel="tag">uniApp</a></span>
+            
             </div>
         </section>
         <article class="post-content">
@@ -86,19 +93,19 @@
 <li>按照提示完成所有操作，等待邮箱成功的邮件即可。(缴费成功后24-48小时邮箱收到购买成功信息)。</li>
 </ul>
 <h2 id="2-创建唯一标示符App-IDs">2.创建唯一标示符App IDs</h2>
-<h3 id="2-1进入-苹果开发者中心，选择-Indentifiers-点击右边【蓝色-号】；">2.1进入 <a target="_blank" rel="noopener" href="https://developer.apple.com/account/resources/identifiers/list">苹果开发者中心</a>，选择 Indentifiers 点击右边【蓝色+号】；</h3>
+<p>(1) 进入 <a target="_blank" rel="noopener" href="https://developer.apple.com/account/resources/identifiers/list">苹果开发者中心</a>，选择 Indentifiers 点击右边【蓝色+号】；</p>
 <img src="https://gitee.com/lxywzh/blogs-img/raw/master/2.1-苹果开发者登录首页.png" alt="2.1-苹果开发者登录首页" style="zoom:50%;" />
-<h3 id="2-2-在打开的【添加Identifier】按步骤点击下图红框标注的部分，如下图所示。">2.2 在打开的【添加Identifier】按步骤点击下图红框标注的部分，如下图所示。</h3>
+<p>(2) 在打开的【添加Identifier】按步骤点击下图红框标注的部分，如下图所示。</p>
 <img src="https://gitee.com/lxywzh/blogs-img/raw/master/2.2-Identifiers列表.png" alt="2.2-Identifiers列表" style="zoom: 50%;" />
-<h3 id="2-2-选择添加的Identifie-id-的类型为App-IDs，点击【Continue-】-按钮，进入下一步；">2.2 选择添加的Identifie id 的类型为App IDs，点击【Continue 】 按钮，进入下一步；</h3>
+<p>(3) 选择添加的Identifie id 的类型为App IDs，点击【Continue 】 按钮，进入下一步；</p>
 <img src="https://gitee.com/lxywzh/blogs-img/raw/master/2.2-选择APP IDs.png" alt="2.2-选择APP IDs" style="zoom: 67%;" />
-<h3 id="2-3-选择-Identifie-对应的类型为-【App】-点击【Continue】按钮，进入下一步；">2.3 选择 Identifie 对应的类型为 【App】,点击【Continue】按钮，进入下一步；</h3>
+<p>(4) 选择 Identifie 对应的类型为 【App】,点击【Continue】按钮，进入下一步；</p>
 <img src="https://gitee.com/lxywzh/blogs-img/raw/master/2.3-选择类型.png" alt="2.3-选择类型" style="zoom: 67%;" />
-<h3 id="2-4-填写注册App-ID的内容，填写下图红框选中部分的内容【Description】和【Bundle-ID】；">2.4 填写注册App ID的内容，填写下图红框选中部分的内容【Description】和【Bundle ID】；</h3>
+<p>(5) 填写注册App ID的内容，填写下图红框选中部分的内容【Description】和【Bundle ID】；</p>
 <img src="https://gitee.com/lxywzh/blogs-img/raw/master/2.4-填写APP ID信息及功能.png" alt="2.4-填写APP ID信息及功能" style="zoom: 67%;" />
-<h3 id="2-5-选择App-Capabilities，在注册页面下方的Capabilities-中选择一下选项">2.5 选择App Capabilities，在注册页面下方的Capabilities 中选择一下选项:</h3>
+<p>(6) 选择App Capabilities，在注册页面下方的Capabilities 中选择一下选项:</p>
 <img src="https://gitee.com/lxywzh/blogs-img/raw/master/2.4-功能服务.jpg" alt="2.4-功能服务" style="zoom: 50%;" />
-<h3 id="2-6-选择完成后点击【Continue】按钮，然后在点击【Register】按钮，Identifiers列表新增的APP-ID信息，代表注册成功。">2.6 选择完成后点击【Continue】按钮，然后在点击【Register】按钮，Identifiers列表新增的APP ID信息，代表注册成功。</h3>
+<p>(7) 选择完成后点击【Continue】按钮，然后在点击【Register】按钮，Identifiers列表新增的APP ID信息，代表注册成功。</p>
 <img src="https://gitee.com/lxywzh/blogs-img/raw/master/2.5-提交APP IDs信息.png" alt="2.5-提交APP IDs信息" style="zoom: 67%;" />
 <h2 id="3-申请APP发布密码">3.申请APP发布密码</h2>
 <p>打开[apple id][<a target="_blank" rel="noopener" href="https://appleid.apple.com/">https://appleid.apple.com/</a>]管理中心，登录开发者账号。</p>
@@ -302,10 +309,14 @@ App Store：上线到苹果商店时用到</p>
                     <li>上一篇: <a href="/2024/04/02/%E8%A7%A3%E5%86%B3hexo%E5%BC%95%E5%85%A5%E5%9B%BE%E5%BA%8A%EF%BC%8C%E6%89%8B%E6%9C%BA%E5%92%8Cweb%E4%B8%8D%E6%98%BE%E7%A4%BA%E5%9B%BE%E7%89%87%E7%9A%84%E9%97%AE%E9%A2%98/">解决hexo引入图床，不显示图片的问题</a></li>
                 
                 
-                    <li>下一篇: <a href="/2024/04/02/IOS_CSR(CertificateSigningRequest)%E6%96%87%E4%BB%B6%E8%8E%B7%E5%8F%96/">IOS_CSR(CertificateSigningRequest)文件获取</a></li>
+                    <li>下一篇: <a href="/2024/04/02/TYPORA%E4%B8%AD%E6%96%87%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/">TYPORA中文快速上手使用教程</a></li>
                 
             </ul>
         </section>
+        
+            <section class="post-tags">
+            <a class="-none-link" href="/tags/APP-Store/" rel="tag">APP Store</a><a class="-none-link" href="/tags/uniApp/" rel="tag">uniApp</a>
+            </section>
         
     
         <section class="post-author">
@@ -332,7 +343,7 @@ App Store：上线到苹果商店时用到</p>
             <div class="row">
                 <div class="col-m-4">
                     <h3 class="title-recent">最新文章：</h3>
-                    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2024/04/02/PicGo%EF%BC%88%E5%9B%BE%E5%BA%8A%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95%EF%BC%89/">PicGo（图床使用方法）</a></li><li class="post-list-item"><a class="post-list-link" href="/2024/04/02/%E5%85%B3%E4%BA%8Enpm%20%E5%AE%89%E8%A3%85%E4%BE%9D%E8%B5%96%20%E5%92%8C%20dependencies%20%E5%92%8C%20devdependencies%20%E7%9A%84%E4%BD%BF%E7%94%A8%20%E5%92%8C%20%E6%8F%8F%E8%BF%B0/">关于npm 安装依赖 和 dependencies 和 devdependencies 的使用 和 描述</a></li><li class="post-list-item"><a class="post-list-link" href="/2024/04/02/%E8%A7%A3%E5%86%B3hexo%E5%BC%95%E5%85%A5%E5%9B%BE%E5%BA%8A%EF%BC%8C%E6%89%8B%E6%9C%BA%E5%92%8Cweb%E4%B8%8D%E6%98%BE%E7%A4%BA%E5%9B%BE%E7%89%87%E7%9A%84%E9%97%AE%E9%A2%98/">解决hexo引入图床，不显示图片的问题</a></li><li class="post-list-item"><a class="post-list-link" href="/2024/04/02/%E8%AE%B0%E5%BD%95app%E4%B8%8A%E6%9E%B6APP%20Store%E5%85%A8%E6%B5%81%E7%A8%8B/">记录app上架APP Store全流程</a></li><li class="post-list-item"><a class="post-list-link" href="/2024/04/02/IOS_CSR(CertificateSigningRequest)%E6%96%87%E4%BB%B6%E8%8E%B7%E5%8F%96/">IOS_CSR(CertificateSigningRequest)文件获取</a></li><li class="post-list-item"><a class="post-list-link" href="/2024/04/02/TYPORA%E4%B8%AD%E6%96%87%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/">TYPORA中文快速上手使用教程</a></li></ul>
+                    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2024/04/07/%E5%9C%A8%E7%BA%BF%E5%B7%A5%E5%85%B7/">工具汇总</a></li><li class="post-list-item"><a class="post-list-link" href="/2024/04/07/Hexo%20%E6%B7%BB%E5%8A%A0%E6%9C%AC%E5%9C%B0%E6%90%9C%E7%B4%A2%E5%8A%9F%E8%83%BD/">Hexo 添加本地搜索功能</a></li><li class="post-list-item"><a class="post-list-link" href="/2024/04/02/IOS_CSR(CertificateSigningRequest)%E6%96%87%E4%BB%B6%E8%8E%B7%E5%8F%96/">IOS_CSR(CertificateSigningRequest)文件获取</a></li><li class="post-list-item"><a class="post-list-link" href="/2024/04/02/PicGo%EF%BC%88%E5%9B%BE%E5%BA%8A%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95%EF%BC%89/">PicGo（图床使用方法）</a></li><li class="post-list-item"><a class="post-list-link" href="/2024/04/02/%E5%85%B3%E4%BA%8Enpm%20%E5%AE%89%E8%A3%85%E4%BE%9D%E8%B5%96%20%E5%92%8C%20dependencies%20%E5%92%8C%20devdependencies%20%E7%9A%84%E4%BD%BF%E7%94%A8%20%E5%92%8C%20%E6%8F%8F%E8%BF%B0/">关于npm 安装依赖 和 dependencies 和 devdependencies 的使用 和 描述</a></li><li class="post-list-item"><a class="post-list-link" href="/2024/04/02/%E8%A7%A3%E5%86%B3hexo%E5%BC%95%E5%85%A5%E5%9B%BE%E5%BA%8A%EF%BC%8C%E6%89%8B%E6%9C%BA%E5%92%8Cweb%E4%B8%8D%E6%98%BE%E7%A4%BA%E5%9B%BE%E7%89%87%E7%9A%84%E9%97%AE%E9%A2%98/">解决hexo引入图床，不显示图片的问题</a></li></ul>
                 </div>
                 <div class="col-m-4">
                     <h3 class="title-date">时光机：</h3>
@@ -340,7 +351,7 @@ App Store：上线到苹果商店时用到</p>
                 </div>
                 <div class="col-m-4">
                     <h3 class="title-tags">标签云：</h3>
-                    <a href="/tags/App-Store/" style="font-size: 10px;">App Store</a> <a href="/tags/GIT/" style="font-size: 10px;">GIT</a> <a href="/tags/Hexo/" style="font-size: 20px;">Hexo</a> <a href="/tags/NPM/" style="font-size: 10px;">NPM</a> <a href="/tags/PS/" style="font-size: 10px;">PS</a> <a href="/tags/PicGo-Typora-gitee/" style="font-size: 10px;">PicGo + Typora + gitee</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/html/" style="font-size: 10px;">html</a> <a href="/tags/typora/" style="font-size: 10px;">typora</a> <a href="/tags/vue/" style="font-size: 10px;">vue</a> <a href="/tags/webpack/" style="font-size: 10px;">webpack</a> <a href="/tags/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/" style="font-size: 10px;">微信小程序</a> <a href="/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/" style="font-size: 10px;">面试题</a>
+                    <a href="/tags/APP-Store/" style="font-size: 10px;">APP Store</a> <a href="/tags/App-Store/" style="font-size: 10px;">App Store</a> <a href="/tags/GIT/" style="font-size: 10px;">GIT</a> <a href="/tags/Hexo/" style="font-size: 20px;">Hexo</a> <a href="/tags/NPM/" style="font-size: 10px;">NPM</a> <a href="/tags/PS/" style="font-size: 10px;">PS</a> <a href="/tags/PicGo/" style="font-size: 10px;">PicGo</a> <a href="/tags/Typora/" style="font-size: 10px;">Typora</a> <a href="/tags/gitee/" style="font-size: 10px;">gitee</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/html/" style="font-size: 10px;">html</a> <a href="/tags/typora/" style="font-size: 10px;">typora</a> <a href="/tags/uniApp/" style="font-size: 10px;">uniApp</a> <a href="/tags/vue/" style="font-size: 10px;">vue</a> <a href="/tags/webpack/" style="font-size: 10px;">webpack</a> <a href="/tags/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/" style="font-size: 10px;">微信小程序</a> <a href="/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/" style="font-size: 10px;">面试题</a>
                 </div>
             </div>
         </section>

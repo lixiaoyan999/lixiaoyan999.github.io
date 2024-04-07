@@ -43,7 +43,8 @@ body:before{
     z-index: -1;
     display: block;
     position: fixed;
-    /* background: url(https://api.paugram.com/wallpaper/) center/cover; */
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
 ::-webkit-scrollbar{
@@ -986,13 +987,27 @@ pre[class*="language-"].line-numbers {
     z-index: 99;
 }
 
-.search-result-list {
+
+#local-search-result::after {
+    content: "";
+    background: url('https://api.paugram.com/wallpaper?source=gh');
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+    opacity: 0.3;
+}
+
+#local-search-result  .search-result-list {
     max-width: 50em;
+    height: 100%;
     margin:  0 auto;
-    padding: 1em 1.25em;
+    padding: 2em 1.25em;
     box-sizing: content-box;
 }
 
-.search-result-list li:first-child {
-    margin-top: 1em;
+#local-search-result .search-result-list li {
+    margin-bottom: 2em;
 }
