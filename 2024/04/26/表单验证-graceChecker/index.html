@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html>
+  <head>
+     
+    <meta charset="UTF-8">
+    <title>表单验证(graceChecker) - 一叶知秋</title>
+    <link rel="shortcut icon" href="/static/img/icon.png">
+    <link rel="icon" href="/static/img/icon.png" sizes="192x192"/>
+    
+<link rel="stylesheet" href="/static/kico.css">
+<link rel="stylesheet" href="/static/hingle.css">
+
+    
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <meta name="viewport" content="width=device-width, maximum-scale=1, initial-scale=1"/>
+    <meta property="og:site_name" content="一叶知秋">
+    <meta property="og:title" content="表单验证(graceChecker)"/>
+    <meta name="referrer" content="no-referrer" />
+    
+    <style>body:before{ content: ''; background-image: url(https://api.paugram.com/wallpaper?source=gh) }</style>
+    
+    <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+    
+<script src="/static/search.js"></script>
+
+
+
+    <script type="text/javascript">
+        var search_path = "/search.xml";
+        if (search_path.length == 0) {
+            search_path = "search.xml";
+        }
+        var path = search_path;
+        searchFunc(path, 'local-search-input', 'local-search-result');
+    </script>
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+  <body>
+    <header>
+    <div class="head-title">
+        <h4>一叶知秋</h4>
+    </div>
+    <div class="head-action">
+        <div class="toggle-btn"></div>
+        <div class="light-btn"></div>
+        <div class="search-btn"></div>
+    </div>
+    <!-- <form class="head-search" method="post">
+        <input type="text" name="s" placeholder="搜索什么？">
+    </form> -->
+    <form class="head-search d-flex">
+        <input id="local-search-input" class="form-control me-2 pe-4" type="search" placeholder="搜索什么？ " aria-label="Search">
+    </form>
+    <nav class="head-menu">
+        <a href="/">首页</a>
+        <div class="has-child">
+            <a >分类</a>
+            <div class="sub-menu">
+                <a class="category-link" href="/categories/share/">工具分享</a><a class="category-link" href="/categories/coding/">技术分享</a>
+            </div>
+        </div>
+        
+    </nav>
+</header>
+
+
+
+     <!-- 搜索结果 -->
+     <div id="local-search-result"></div>
+    <main>
+    <div class="wrap min">
+        <section class="post-title">
+            <h2>表单验证(graceChecker)</h2>
+            <div class="post-meta">
+                <time class="date">2024.04.26</time>
+            
+                <span class="category"><a class="category-link" href="/categories/coding/">技术分享</a></span>
+            
+            
+                <span class="tags"><a class="-none-link" href="/tags/uni-app/" rel="tag">uni-app</a></span>
+            
+            </div>
+        </section>
+        <article class="post-content">
+        
+            <p>1.引入文件-graceChecker</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">/**数据验证（表单验证）- graceChecker*/</span>
+module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
+	<span class="token literal-property property">error</span><span class="token operator">:</span> <span class="token string">''</span><span class="token punctuation">,</span>
+	<span class="token function-variable function">check</span><span class="token operator">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">data<span class="token punctuation">,</span> rule</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+		<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">var</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> rule<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+			<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>rule<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>checkType<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+				<span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+			<span class="token punctuation">&#125;</span>
+			<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>rule<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>name<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+				<span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+			<span class="token punctuation">&#125;</span>
+			<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>rule<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>errorMsg<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+				<span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+			<span class="token punctuation">&#125;</span>
+			<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>data<span class="token punctuation">[</span>rule<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>name<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+				<span class="token keyword">this</span><span class="token punctuation">.</span>error <span class="token operator">=</span> rule<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>errorMsg<span class="token punctuation">;</span>
+				<span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+			<span class="token punctuation">&#125;</span>
+			<span class="token keyword">switch</span> <span class="token punctuation">(</span>rule<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>checkType<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+				<span class="token keyword">case</span> <span class="token string">'string'</span><span class="token operator">:</span>
+					<span class="token keyword">var</span> reg <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">RegExp</span><span class="token punctuation">(</span><span class="token string">'^.&#123;'</span> <span class="token operator">+</span> rule<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>checkRule <span class="token operator">+</span> <span class="token string">'&#125;$'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+					<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>reg<span class="token punctuation">.</span><span class="token function">test</span><span class="token punctuation">(</span>data<span class="token punctuation">[</span>rule<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>name<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+						<span class="token keyword">this</span><span class="token punctuation">.</span>error <span class="token operator">=</span> rule<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>errorMsg<span class="token punctuation">;</span>
+						<span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+					<span class="token punctuation">&#125;</span>
+					<span class="token keyword">break</span><span class="token punctuation">;</span>
+				<span class="token keyword">case</span> <span class="token string">'int'</span><span class="token operator">:</span>
+					<span class="token keyword">var</span> reg <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">RegExp</span><span class="token punctuation">(</span><span class="token string">'^(-[1-9]|[1-9])[0-9]&#123;'</span> <span class="token operator">+</span> rule<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>checkRule <span class="token operator">+</span> <span class="token string">'&#125;$'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+					<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>reg<span class="token punctuation">.</span><span class="token function">test</span><span class="token punctuation">(</span>data<span class="token punctuation">[</span>rule<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>name<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+						<span class="token keyword">this</span><span class="token punctuation">.</span>error <span class="token operator">=</span> rule<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>errorMsg<span class="token punctuation">;</span>
+						<span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+					<span class="token punctuation">&#125;</span>
+					<span class="token keyword">break</span><span class="token punctuation">;</span>
+					<span class="token keyword">break</span><span class="token punctuation">;</span>
+				<span class="token keyword">case</span> <span class="token string">'between'</span><span class="token operator">:</span>
+					<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">isNumber</span><span class="token punctuation">(</span>data<span class="token punctuation">[</span>rule<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>name<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+						<span class="token keyword">this</span><span class="token punctuation">.</span>error <span class="token operator">=</span> rule<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>errorMsg<span class="token punctuation">;</span>
+						<span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+					<span class="token punctuation">&#125;</span>
+					<span class="token keyword">var</span> minMax <span class="token operator">=</span> rule<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>checkRule<span class="token punctuation">.</span><span class="token function">split</span><span class="token punctuation">(</span><span class="token string">','</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+					minMax<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">Number</span><span class="token punctuation">(</span>minMax<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+					minMax<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">Number</span><span class="token punctuation">(</span>minMax<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+					<span class="token keyword">if</span> <span class="token punctuation">(</span>data<span class="token punctuation">[</span>rule<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>name<span class="token punctuation">]</span> <span class="token operator">></span> minMax<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">||</span> data<span class="token punctuation">[</span>rule<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>name<span class="token punctuation">]</span> <span class="token operator">&lt;</span> minMax<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+						<span class="token keyword">this</span><span class="token punctuation">.</span>error <span class="token operator">=</span> rule<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>errorMsg<span class="token punctuation">;</span>
+						<span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+					<span class="token punctuation">&#125;</span>
+					<span class="token keyword">break</span><span class="token punctuation">;</span>
+				<span class="token keyword">case</span> <span class="token string">'betweenD'</span><span class="token operator">:</span>
+					<span class="token keyword">var</span> reg <span class="token operator">=</span> <span class="token regex"><span class="token regex-delimiter">/</span><span class="token regex-source language-regex">^-?[1-9][0-9]?$</span><span class="token regex-delimiter">/</span></span><span class="token punctuation">;</span>
+					<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>reg<span class="token punctuation">.</span><span class="token function">test</span><span class="token punctuation">(</span>data<span class="token punctuation">[</span>rule<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>name<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+						<span class="token keyword">this</span><span class="token punctuation">.</span>error <span class="token operator">=</span> rule<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>errorMsg<span class="token punctuation">;</span>
+						<span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+					<span class="token punctuation">&#125;</span>
+					<span class="token keyword">var</span> minMax <span class="token operator">=</span> rule<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>checkRule<span class="token punctuation">.</span><span class="token function">split</span><span class="token punctuation">(</span><span class="token string">','</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+					minMax<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">Number</span><span class="token punctuation">(</span>minMax<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+					minMax<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">Number</span><span class="token punctuation">(</span>minMax<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+					<span class="token keyword">if</span> <span class="token punctuation">(</span>data<span class="token punctuation">[</span>rule<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>name<span class="token punctuation">]</span> <span class="token operator">></span> minMax<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">||</span> data<span class="token punctuation">[</span>rule<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>name<span class="token punctuation">]</span> <span class="token operator">&lt;</span> minMax<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+						<span class="token keyword">this</span><span class="token punctuation">.</span>error <span class="token operator">=</span> rule<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>errorMsg<span class="token punctuation">;</span>
+						<span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+					<span class="token punctuation">&#125;</span>
+					<span class="token keyword">break</span><span class="token punctuation">;</span>
+				<span class="token keyword">case</span> <span class="token string">'betweenF'</span><span class="token operator">:</span>
+					<span class="token keyword">var</span> reg <span class="token operator">=</span> <span class="token regex"><span class="token regex-delimiter">/</span><span class="token regex-source language-regex">^-?[0-9][0-9]?.+[0-9]+$</span><span class="token regex-delimiter">/</span></span><span class="token punctuation">;</span>
+					<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>reg<span class="token punctuation">.</span><span class="token function">test</span><span class="token punctuation">(</span>data<span class="token punctuation">[</span>rule<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>name<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+						<span class="token keyword">this</span><span class="token punctuation">.</span>error <span class="token operator">=</span> rule<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>errorMsg<span class="token punctuation">;</span>
+						<span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+					<span class="token punctuation">&#125;</span>
+					<span class="token keyword">var</span> minMax <span class="token operator">=</span> rule<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>checkRule<span class="token punctuation">.</span><span class="token function">split</span><span class="token punctuation">(</span><span class="token string">','</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+					minMax<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">Number</span><span class="token punctuation">(</span>minMax<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+					minMax<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">Number</span><span class="token punctuation">(</span>minMax<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+					<span class="token keyword">if</span> <span class="token punctuation">(</span>data<span class="token punctuation">[</span>rule<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>name<span class="token punctuation">]</span> <span class="token operator">></span> minMax<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">||</span> data<span class="token punctuation">[</span>rule<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>name<span class="token punctuation">]</span> <span class="token operator">&lt;</span> minMax<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+						<span class="token keyword">this</span><span class="token punctuation">.</span>error <span class="token operator">=</span> rule<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>errorMsg<span class="token punctuation">;</span>
+						<span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+					<span class="token punctuation">&#125;</span>
+					<span class="token keyword">break</span><span class="token punctuation">;</span>
+				<span class="token keyword">case</span> <span class="token string">'same'</span><span class="token operator">:</span>
+					<span class="token keyword">if</span> <span class="token punctuation">(</span>data<span class="token punctuation">[</span>rule<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>name<span class="token punctuation">]</span> <span class="token operator">!=</span> rule<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>checkRule<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+						<span class="token keyword">this</span><span class="token punctuation">.</span>error <span class="token operator">=</span> rule<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>errorMsg<span class="token punctuation">;</span>
+						<span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+					<span class="token punctuation">&#125;</span>
+					<span class="token keyword">break</span><span class="token punctuation">;</span>
+				<span class="token keyword">case</span> <span class="token string">'notsame'</span><span class="token operator">:</span>
+					<span class="token keyword">if</span> <span class="token punctuation">(</span>data<span class="token punctuation">[</span>rule<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>name<span class="token punctuation">]</span> <span class="token operator">==</span> rule<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>checkRule<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+						<span class="token keyword">this</span><span class="token punctuation">.</span>error <span class="token operator">=</span> rule<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>errorMsg<span class="token punctuation">;</span>
+						<span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+					<span class="token punctuation">&#125;</span>
+					<span class="token keyword">break</span><span class="token punctuation">;</span>
+				<span class="token keyword">case</span> <span class="token string">'email'</span><span class="token operator">:</span>
+					<span class="token keyword">var</span> reg <span class="token operator">=</span> <span class="token regex"><span class="token regex-delimiter">/</span><span class="token regex-source language-regex">^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$</span><span class="token regex-delimiter">/</span></span><span class="token punctuation">;</span>
+					<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>reg<span class="token punctuation">.</span><span class="token function">test</span><span class="token punctuation">(</span>data<span class="token punctuation">[</span>rule<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>name<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+						<span class="token keyword">this</span><span class="token punctuation">.</span>error <span class="token operator">=</span> rule<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>errorMsg<span class="token punctuation">;</span>
+						<span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+					<span class="token punctuation">&#125;</span>
+					<span class="token keyword">break</span><span class="token punctuation">;</span>
+				<span class="token keyword">case</span> <span class="token string">'phoneno'</span><span class="token operator">:</span>
+					<span class="token keyword">var</span> reg <span class="token operator">=</span> <span class="token regex"><span class="token regex-delimiter">/</span><span class="token regex-source language-regex">^1[0-9]&#123;10,10&#125;$</span><span class="token regex-delimiter">/</span></span><span class="token punctuation">;</span>
+					<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>reg<span class="token punctuation">.</span><span class="token function">test</span><span class="token punctuation">(</span>data<span class="token punctuation">[</span>rule<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>name<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+						<span class="token keyword">this</span><span class="token punctuation">.</span>error <span class="token operator">=</span> rule<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>errorMsg<span class="token punctuation">;</span>
+						<span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+					<span class="token punctuation">&#125;</span>
+					<span class="token keyword">break</span><span class="token punctuation">;</span>
+				<span class="token keyword">case</span> <span class="token string">'zipcode'</span><span class="token operator">:</span>
+					<span class="token keyword">var</span> reg <span class="token operator">=</span> <span class="token regex"><span class="token regex-delimiter">/</span><span class="token regex-source language-regex">^[0-9]&#123;4&#125;$</span><span class="token regex-delimiter">/</span></span><span class="token punctuation">;</span>
+					<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>reg<span class="token punctuation">.</span><span class="token function">test</span><span class="token punctuation">(</span>data<span class="token punctuation">[</span>rule<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>name<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+						<span class="token keyword">this</span><span class="token punctuation">.</span>error <span class="token operator">=</span> rule<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>errorMsg<span class="token punctuation">;</span>
+						<span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+					<span class="token punctuation">&#125;</span>
+					<span class="token keyword">break</span><span class="token punctuation">;</span>
+				<span class="token keyword">case</span> <span class="token string">'reg'</span><span class="token operator">:</span>
+					<span class="token keyword">var</span> reg <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">RegExp</span><span class="token punctuation">(</span>rule<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>checkRule<span class="token punctuation">)</span><span class="token punctuation">;</span>
+					<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>reg<span class="token punctuation">.</span><span class="token function">test</span><span class="token punctuation">(</span>data<span class="token punctuation">[</span>rule<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>name<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+						<span class="token keyword">this</span><span class="token punctuation">.</span>error <span class="token operator">=</span> rule<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>errorMsg<span class="token punctuation">;</span>
+						<span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+					<span class="token punctuation">&#125;</span>
+					<span class="token keyword">break</span><span class="token punctuation">;</span>
+				<span class="token keyword">case</span> <span class="token string">'in'</span><span class="token operator">:</span>
+					<span class="token keyword">if</span> <span class="token punctuation">(</span>rule<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>checkRule<span class="token punctuation">.</span><span class="token function">indexOf</span><span class="token punctuation">(</span>data<span class="token punctuation">[</span>rule<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>name<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+						<span class="token keyword">this</span><span class="token punctuation">.</span>error <span class="token operator">=</span> rule<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>errorMsg<span class="token punctuation">;</span>
+						<span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+					<span class="token punctuation">&#125;</span>
+					<span class="token keyword">break</span><span class="token punctuation">;</span>
+				<span class="token keyword">case</span> <span class="token string">'notnull'</span><span class="token operator">:</span>
+					<span class="token keyword">if</span> <span class="token punctuation">(</span>data<span class="token punctuation">[</span>rule<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>name<span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token keyword">null</span> <span class="token operator">||</span> data<span class="token punctuation">[</span>rule<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>name<span class="token punctuation">]</span><span class="token punctuation">.</span>length <span class="token operator">&lt;</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+						<span class="token keyword">this</span><span class="token punctuation">.</span>error <span class="token operator">=</span> rule<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>errorMsg<span class="token punctuation">;</span>
+						<span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+					<span class="token punctuation">&#125;</span>
+					<span class="token keyword">break</span><span class="token punctuation">;</span>
+				<span class="token keyword">case</span> <span class="token string">'texts'</span><span class="token operator">:</span>
+					<span class="token keyword">var</span> reg <span class="token operator">=</span> <span class="token regex"><span class="token regex-delimiter">/</span><span class="token regex-source language-regex">^[\u2E80-\u9FFF]+$</span><span class="token regex-delimiter">/</span></span><span class="token punctuation">;</span>
+					<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>reg<span class="token punctuation">.</span><span class="token function">test</span><span class="token punctuation">(</span>data<span class="token punctuation">[</span>rule<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>name<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+						<span class="token keyword">this</span><span class="token punctuation">.</span>error <span class="token operator">=</span> rule<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>errorMsg<span class="token punctuation">;</span>
+						<span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+					<span class="token punctuation">&#125;</span>
+					<span class="token keyword">break</span><span class="token punctuation">;</span>
+			<span class="token punctuation">&#125;</span>
+		<span class="token punctuation">&#125;</span>
+		<span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+	<span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+	<span class="token function-variable function">isNumber</span><span class="token operator">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">checkVal</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+		<span class="token keyword">var</span> reg <span class="token operator">=</span> <span class="token regex"><span class="token regex-delimiter">/</span><span class="token regex-source language-regex">^-?[1-9][0-9]?.?[0-9]*$</span><span class="token regex-delimiter">/</span></span><span class="token punctuation">;</span>
+		<span class="token keyword">return</span> reg<span class="token punctuation">.</span><span class="token function">test</span><span class="token punctuation">(</span>checkVal<span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>2.验证步骤</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">import</span> graceChecker <span class="token keyword">from</span> <span class="token string">'@/common/graceChecker'</span><span class="token punctuation">;</span> <span class="token comment">// 引入graceChecker，来自 graceUI 的表单验证</span>
+<span class="token comment">/** 验证步骤
+ ** 1.定义验证规则；
+ ** 2.验证类型及规则；验证通过返回true 失败返回 false 并使用 graceChecker.error 属性记录对应的验证错误
+**/</span>
+<span class="token keyword">var</span> rule <span class="token operator">=</span> <span class="token punctuation">[</span>
+    <span class="token punctuation">&#123;</span><span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">'mobile'</span><span class="token punctuation">,</span> <span class="token literal-property property">checkType</span><span class="token operator">:</span> <span class="token string">'phoneno'</span><span class="token punctuation">,</span><span class="token literal-property property">errorMsg</span><span class="token operator">:</span> <span class="token string">'请输入正确的手机号'</span><span class="token punctuation">&#125;</span>
+<span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> checkRes <span class="token operator">=</span> graceChecker<span class="token punctuation">.</span><span class="token function">check</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
+	<span class="token literal-property property">mobile</span><span class="token operator">:</span> <span class="token keyword">this</span><span class="token punctuation">.</span>mobile
+<span class="token punctuation">&#125;</span><span class="token punctuation">,</span> rule<span class="token punctuation">)</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'验证结果'</span><span class="token punctuation">,</span> checkRes<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><strong>验证类型及规则</strong></p>
+<pre class="line-numbers language-markdown" data-language="markdown"><code class="language-markdown">1. string
+功能 : 字符串及长度检查
+规则 : 最小长度,最大长度
+如 :  
+1,3 代表 1到3个字符
+2, 代表只检查最短2个字符
+2,2 代表等于2个字符
+2. int
+功能 : 整数及长度检查
+规则 : 最小长度,最大长度 如 1,3
+3. between
+功能 : 数值区间检查
+规则 : 最小值,最大值 如 1,3 或 2.5,1000
+4. betweenD
+功能 : 数值区间检查【整数】
+规则 : 最小值,最大值 如 1,3 或 2,1000
+5. same
+功能 : 等值检查
+规则 : 对应的值
+6. notsame
+功能 : 不等值检查
+规则 : 对应的值
+7. email
+功能 : 邮箱检查
+规则 : 无需设置
+8. phoneno
+功能 : 11位手机号检查
+规则 : 无需设置
+9. zipcode
+功能 : 6位邮编检查
+规则 : 无需设置
+10. reg
+功能 : 正则表达式检查
+规则 : 正则表达式内容 如 &quot;^[0-9]&#123;1,2&#125;$&quot;
+11. in
+功能 : 包含某个字符串的检查
+规则 : 字符串集，如：&quot;北京,上海&quot;
+12. notnull
+功能 : 不为空检查【null 或者 空数组】
+规则 : 无需设置
+13. samewith
+功能 : 等于某个设定的元素的值 [ 常用于密码检查 ]
+规则 : 元素的name属性
+14. numbers
+功能 : 数字组成的字符长度检查 [ 和整数不同，这个规则允许 0123... ]
+规则 : 最小长度,最大长度 
+如 :  
+1,3 代表 1到3个数字
+2, 代表只检查最短2个数字
+2,2 代表等于2个数字<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><strong>方法源于GraceUI框架-表单相关-表单验证</strong></p>
+
+        </article>
+        <section class="post-near">
+            <ul>
+                
+                    <li>上一篇: 看完啦 (つд⊂)</li>
+                
+                
+                    <li>下一篇: <a href="/2024/04/13/npm-install%E6%8A%A5%E9%94%99/">npm install 运行后报错  peer eslint@6.0.0 7.0.0 8.0.0&#34;from @typescript-eslint/eslint-pluging5.1.0</a></li>
+                
+            </ul>
+        </section>
+        
+            <section class="post-tags">
+            <a class="-none-link" href="/tags/uni-app/" rel="tag">uni-app</a>
+            </section>
+        
+    
+        <section class="post-author">
+        
+            <figure class="author-avatar">
+                <img src="https://gitee.com/lxywzh/blogs-img/raw/master/tx-3.jpg" alt="XXXXY" />
+            </figure>
+        
+            <div class="author-info">
+                <h4>XXXXY</h4>
+                <p>走在前端路程上的小坎坷</p>
+            </div>
+        </section>
+    
+    </div>
+</main>
+
+    <footer>
+    <div class="buttons">
+        <a class="to-top" href="#"></a>
+    </div>
+    <div class="wrap min">
+        <section class="widget">
+            <div class="row">
+                <div class="col-m-4">
+                    <h3 class="title-recent">最新文章：</h3>
+                    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2024/04/26/%E8%A1%A8%E5%8D%95%E9%AA%8C%E8%AF%81-graceChecker/">表单验证(graceChecker)</a></li><li class="post-list-item"><a class="post-list-link" href="/2024/04/13/npm-install%E6%8A%A5%E9%94%99/">npm install 运行后报错  peer eslint@6.0.0 7.0.0 8.0.0"from @typescript-eslint/eslint-pluging5.1.0</a></li><li class="post-list-item"><a class="post-list-link" href="/2024/04/08/Vue%20%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/">Vue 反向代理</a></li><li class="post-list-item"><a class="post-list-link" href="/2024/04/08/vue-cli%E6%9F%A5%E7%9C%8B%E5%90%84%E4%B8%AA%E7%89%88%E6%9C%AC%E7%9A%84%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86%E9%85%8D%E7%BD%AE/">vue-cli查看各个版本的反向代理配置</a></li><li class="post-list-item"><a class="post-list-link" href="/2024/04/07/%E5%9C%A8%E7%BA%BF%E5%B7%A5%E5%85%B7/">工具汇总</a></li><li class="post-list-item"><a class="post-list-link" href="/2024/04/07/Hexo%20%E6%B7%BB%E5%8A%A0%E6%9C%AC%E5%9C%B0%E6%90%9C%E7%B4%A2%E5%8A%9F%E8%83%BD/">Hexo 添加本地搜索功能</a></li></ul>
+                </div>
+                <div class="col-m-4">
+                    <h3 class="title-date">时光机：</h3>
+                    <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/04/">四月 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">十月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">三月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">八月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">四月 2016</a></li></ul>
+                </div>
+                <div class="col-m-4">
+                    <h3 class="title-tags">标签云：</h3>
+                    <a href="/tags/APP-Store/" style="font-size: 10px;">APP Store</a> <a href="/tags/App-Store/" style="font-size: 10px;">App Store</a> <a href="/tags/GIT/" style="font-size: 10px;">GIT</a> <a href="/tags/Hexo/" style="font-size: 20px;">Hexo</a> <a href="/tags/NPM/" style="font-size: 10px;">NPM</a> <a href="/tags/PS/" style="font-size: 10px;">PS</a> <a href="/tags/PicGo/" style="font-size: 10px;">PicGo</a> <a href="/tags/Typora/" style="font-size: 10px;">Typora</a> <a href="/tags/gitee/" style="font-size: 10px;">gitee</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/html/" style="font-size: 10px;">html</a> <a href="/tags/npm/" style="font-size: 10px;">npm</a> <a href="/tags/typora/" style="font-size: 10px;">typora</a> <a href="/tags/uni-app/" style="font-size: 10px;">uni-app</a> <a href="/tags/uniApp/" style="font-size: 10px;">uniApp</a> <a href="/tags/vue/" style="font-size: 20px;">vue</a> <a href="/tags/webpack/" style="font-size: 10px;">webpack</a> <a href="/tags/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/" style="font-size: 10px;">微信小程序</a> <a href="/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/" style="font-size: 10px;">面试题</a>
+                </div>
+            </div>
+        </section>
+        <section class="sub-footer">
+            <p>© 2024 <a href="/">一叶知秋</a>. All Rights Reserved. Theme By <a href="https://github.com/Dreamer-Paul/Hingle" target="_blank" rel="nofollow">Hingle</a>.</p>
+        </section>
+    </div>
+</footer>
+
+
+<script src="/static/kico.js"></script>
+<script src="/static/hingle.js"></script>
+
+<script>var hingle = new Paul_Hingle({"copyright":true,"night":true});</script>
+
+  </body>
+</html>
